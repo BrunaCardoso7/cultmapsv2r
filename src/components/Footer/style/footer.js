@@ -8,13 +8,14 @@ export const FooterComp = styled.footer`
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    padding-bottom: 150px;
+    
 
 `
 export const FooterWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 20px;
 `
 export const FooterHeader = styled.div`
     display: flex;

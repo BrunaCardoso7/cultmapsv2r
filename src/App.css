@@ -11,10 +11,10 @@
   font-family: 'Poppins', sans-serif;
 }
 html{
-  width: auto;
+  width: max-content;
 }
 body{
   background-color: rgb(243, 243, 243);
-  width: 100vw;
-  height: 100vh;
+  width: fit-content;
+  overflow-x: hidden;
 }

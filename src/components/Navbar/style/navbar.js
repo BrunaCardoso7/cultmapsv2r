@@ -10,6 +10,7 @@ export const Header = styled.div`
     flex-wrap: nowrap;
     justify-content: center;
     gap: 6%;
+    padding: 7px 0;
     box-shadow: 0 0 5px rgb(217, 217, 217);
     img{
         height: 50px;
