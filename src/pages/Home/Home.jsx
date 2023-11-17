@@ -1,10 +1,8 @@
-import Navbar from "../../components/Navbar/Navbar";
-
+import './style/home.css'
 export default function Home(){
     return(
-        <section>
-            <Navbar/>
-            <h1> Wellcome to home of Cult Maps</h1>
-        </section>
+        <main>
+            
+        </main>
     )
 }
