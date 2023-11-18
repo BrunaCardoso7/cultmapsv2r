@@ -10,16 +10,16 @@ export const ConteinerMenu = styled.div`
 export const Select = styled.select`
     padding: 5px 15px;
     border-radius: 10px;
+    margin-right: 5%;
     background-color: transparent;
 `
 export const ConteinerCategoria = styled.div`
-    width: 50vw;
+    width: 60vw;
     display: flex;
     white-space: nowrap;
     overflow-x: hidden;
     user-select: none;
     cursor: grab;
-
 `
 export const ButtonCategoria = styled.button`
     display: inline-block;
@@ -28,7 +28,7 @@ export const ButtonCategoria = styled.button`
     border-radius: 24px;
     background-color: transparent;
     margin: 0 5px; /* Adapte conforme necessário */
-    :hover {
+    &:hover {
         transition: .3s;
         background-color: rgb(255, 115, 0);
         color: white;

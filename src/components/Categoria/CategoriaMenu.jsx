@@ -42,6 +42,7 @@ export default function CategoriaMenu() {
                 </optgroup>
             </Select>
             <ConteinerCategoria
+                
                   onMouseDown={handleMouseDown}
                   onMouseUp={handleMouseUp}
                   onMouseLeave={handleMouseLeave}
@@ -56,6 +57,9 @@ export default function CategoriaMenu() {
                 <ButtonCategoria>Cursos</ButtonCategoria>
                 <ButtonCategoria>Esportes</ButtonCategoria>
                 <ButtonCategoria>Artes</ButtonCategoria>
+                <ButtonCategoria>Esportes</ButtonCategoria>
+                <ButtonCategoria>Esportes</ButtonCategoria>
+
             </ConteinerCategoria>
         </ConteinerMenu>
     )

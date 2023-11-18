@@ -1,0 +1,13 @@
+.carrosel{
+    overflow: hidden;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 30px;
+}
+.inner{
+    display: flex;
+    color: gray;
+    gap: 30px;
+}

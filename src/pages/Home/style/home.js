@@ -4,5 +4,5 @@ export const Main = styled.main`
     height: 100%;
 `
 export const Section = styled.section`
-    height: 100vh;
+    height: max-content;
 `   
