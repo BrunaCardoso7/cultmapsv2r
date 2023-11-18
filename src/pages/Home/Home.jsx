@@ -1,11 +1,18 @@
+import Cards from '../../components/Cards/Cards'
+import CategoriaMenu from '../../components/Categoria/CategoriaMenu'
 import Slider from '../../components/Slider/SliderImg'
-import './style/home.css'
+import './style/home.js'
+import { Main, Section } from './style/home.js'
 export default function Home(){
     return(
-        <main>
-            <section>
+        <Main>
+            <Section>
                 <Slider/>
-            </section>
-        </main>
+            </Section>
+            <Section>
+                <CategoriaMenu/>
+                <Cards/>
+            </Section>
+        </Main>
     )
 }
