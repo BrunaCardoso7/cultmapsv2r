@@ -8,13 +8,14 @@ export const CardElement = styled.div`
     overflow: hidden;
     margin-left: 10px;
     margin-bottom: 10px;
+    margin-top: 10px;
     &:hover{
         box-shadow: 0 0 5px gray;
     }
 `
 export const Image = styled.img`
     width: 100%;
-    /* max-height: 50%; */
+    max-height: 50%;
     object-fit: cover;
     border-radius: 14px 14px 0 0;
 `
@@ -33,7 +34,7 @@ export const Evento = styled.div`
         border-radius: 14px;
     }
     h5{
-        color: rgb(74, 74, 74);
+        color: rgb(72, 72, 72);
     }
     p{
         font-size: .8rem;
@@ -46,6 +47,10 @@ export const Evento = styled.div`
         padding: 5px 15px;
         color: white;
         border-radius: 14px
+       
+    }
+    button:hover{
+        background-color: orangered;
     }
     
 `

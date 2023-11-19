@@ -1,5 +1,7 @@
 
+import { Outlet } from 'react-router-dom'
 import {Header, Logo, SearchConteiner, Nav, Button} from './style/navbar.js'
+import SearchIcon from '@mui/icons-material/Search';
 import 'styled-components'
 export default function Navbar(){
   return(
@@ -11,7 +13,7 @@ export default function Navbar(){
             </Logo>
             <SearchConteiner>
                 <input type="text" name="pesquisa" id="search-box" placeholder="Pesquisar eventos"/>
-                <i className="bi bi-search-heart-fill"></i>
+                <SearchIcon style={{position:"absolute", left: "88%", top: "10%", color: "gray"}}/>
             </SearchConteiner>
             <Nav>
                 <div className="nav">
@@ -25,6 +27,7 @@ export default function Navbar(){
                 <i className="fa-solid fa-bars" id="btn-menu"></i>
             </div>
         </Header>
+        <Outlet/>
     </header>
   )
 }

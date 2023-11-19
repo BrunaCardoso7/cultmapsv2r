@@ -7,7 +7,7 @@ export default function Card({events}) {
     console.log(events.author)
     return (
         <CardElement>
-            <Image src={events.img}/>
+            <Image src={events.image}/>
             <Evento>
                 <a href="#">{events.categoria}</a>
                 <h5>{events.nome}</h5>

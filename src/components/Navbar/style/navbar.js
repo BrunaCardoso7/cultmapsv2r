@@ -26,6 +26,7 @@ export const Logo  = styled.div`
 `
 export const SearchConteiner  = styled.div`
     position: relative;
+    display: flex;
     input{
         display: block;
         width: 20vw;
