@@ -7,3 +7,9 @@ export function getAllEventos (){
 
     return response
 }
+
+export function searchEventos(title){
+    const response = axios.get(`${baseUrl}eventos/search?title=${title}`)
+    
+    return response
+}

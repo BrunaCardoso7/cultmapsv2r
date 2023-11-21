@@ -4,7 +4,6 @@ import Slider from '../../components/Slider/SliderImg'
 import './style/home.js'
 import { Main, Section } from './style/home.js'
 import { SubSlider } from '../../components/SubSlider/SubSlider'
-import Navbar from '../../components/Navbar/Navbar'
 
 export default function Home(){
 

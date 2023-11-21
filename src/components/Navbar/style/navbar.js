@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const Header = styled.div`
+    position: fixed;
+    top:0;
     width: 100vw;
     margin: auto;
     background-color:white;
@@ -12,6 +14,7 @@ export const Header = styled.div`
     gap: 6%;
     padding: 7px 0;
     box-shadow: 0 0 5px rgb(217, 217, 217);
+    z-index: 10;    
     img{
         height: 50px;
         object-fit: cover;
@@ -23,6 +26,10 @@ export const Header = styled.div`
 export const Logo  = styled.div`
     display: flex;
     align-items: center;
+    cursor: pointer;
+    h2{
+        text-decoration: none;
+    }
 `
 export const SearchConteiner  = styled.div`
     position: relative;
@@ -45,6 +52,10 @@ export const SearchConteiner  = styled.div`
     font-size: .8em;
     color: #696868;
     }
+    button{
+        background-color: transparent;
+        border: none;
+    }
 
 `
 
@@ -55,7 +66,7 @@ export const Button = styled.button`
     font-weight: 500;
     font-size: 1em;
     color: white;
-    padding: 5px 15px;
+    padding: 5px 35px;
     border: none;
     &:hover{
         background-color: rgb(225, 83, 32);
