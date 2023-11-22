@@ -9,6 +9,7 @@ import Search from './pages/Search/Search.jsx'
 import NotFoundPages from './pages/NotFOund/NotFoundPage.jsx'
 // import Authentication from './pages/Authentication/Authentication.jsx.jsx'
 import SignIn from './pages/Authentication/Singin.jsx'
+
 const router = createBrowserRouter([
   {
     path: "/",

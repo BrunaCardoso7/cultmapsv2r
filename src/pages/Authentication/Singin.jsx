@@ -1,17 +1,12 @@
 import './style/singin.css';
 import Input from '../../components/Input/Input';
-import {zodResolver} from '@hookform/resolvers'
+// import {zodResolver} from '@hookform/resolvers'
 import { useForm } from 'react-hook-form';
 
 function SignIn() {
-  const {
-    register, 
-    handleSubmit,
-    // formState:{ errors },
-  } = useForm({
-    // eslint-disable-next-line no-undef
-    resolver: zodResolver(signSchema)
-  })
+  const {register: registerSingin,
+         handleSubmit, 
+        } = useForm()
   function inHandleSubmit(data){
     console.log(data)
   }
@@ -22,22 +17,22 @@ function SignIn() {
             <Input type="text" 
             placeholder="nome" 
             name="nome"
-            register={register}
+            register={registerSingin}
             />
             <Input type="email" 
             placeholder="email" 
             name="email"
-            register={register}
+            register={registerSingin}
             />
             <Input type="text" 
             placeholder="password" 
             name="password"
-            register={register}
+            register={registerSingin}
             />
             <Input type="text" 
             placeholder="password" 
             name="confirmPassword"
-            register={register}
+            register={registerSingin}
             />
             <button>Login teste</button>
         </form>

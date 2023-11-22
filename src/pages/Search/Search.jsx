@@ -5,6 +5,7 @@ import { searchEventos } from "../../services/postServices"
 export default function Search() {
     
     const { title } = useParams()
+    
     console.log(typeof title)
     const [eventos, setEventos] = useState([])
 
