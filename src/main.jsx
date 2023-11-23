@@ -8,8 +8,9 @@ import Home from './pages/Home/Home.jsx'
 import Search from './pages/Search/Search.jsx'
 import NotFoundPages from './pages/NotFOund/NotFoundPage.jsx'
 // import Authentication from './pages/Authentication/Authentication.jsx.jsx'
-import SignIn from './pages/Authentication/Singin.jsx'
-
+// import SignIn from './pages/Authentication/SignIn.jsx'
+import SignUpForm from './pages/Authentication/SignUp.jsx'
+import SignIn from './pages/Authentication/SignIn.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,9 +29,12 @@ const router = createBrowserRouter([
   },  
   {
     path: "/auth",
-    element: <SignIn/>
+    element: <SignUpForm/>,
   },
-
+  {
+    path: "/login",
+    element: <SignIn/>,
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

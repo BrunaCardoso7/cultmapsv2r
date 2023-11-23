@@ -4,8 +4,14 @@ import Slider from '../../components/Slider/SliderImg'
 import './style/home.js'
 import { Main, Section } from './style/home.js'
 import { SubSlider } from '../../components/SubSlider/SubSlider'
+import { useEffect } from 'react'
+import Cookies from 'js-cookie'
 
 export default function Home(){
+    useEffect(()=>{
+        console.log(Cookies.get("token"))
+    }, [])
+
 
     return(
         <>

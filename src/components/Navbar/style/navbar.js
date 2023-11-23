@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+    
 export const Header = styled.div`
     position: fixed;
     top:0;
@@ -11,7 +11,7 @@ export const Header = styled.div`
     align-items: center;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 6%;
+    gap: 5%;
     padding: 7px 0;
     box-shadow: 0 0 5px rgb(217, 217, 217);
     z-index: 10;    
@@ -64,7 +64,7 @@ export const Button = styled.button`
     background-color:  rgb(255, 115, 0);
     border-radius: 14px;
     font-weight: 500;
-    font-size: 1em;
+    font-size: .8em;
     color: white;
     padding: 5px 35px;
     border: none;
@@ -92,4 +92,83 @@ export const Nav = styled.nav`
             color: rgb(255, 115, 0);
         }
     }
+`
+export const UserSpace = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 50px;
+    width: fit-content;
+   
+    img{
+        height: 30px;
+    }
+`
+export const Space = styled.div`
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border: 1px solid gray;
+    padding: 5px 20px;
+    border-radius: 14px;
+    cursor: pointer;
+`
+export const Menu = styled.div`
+    display: ${(props) => (props.visible ? 'block' : 'none')};  
+    background-color: orange;
+    position: absolute;
+    top:100%;    
+    right: 15%;
+    width:300px;
+    height: 300px;
+    border-radius: 14px;
+    padding:20px;
+`
+export const ModalUser = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button{
+        position: absolute;
+        bottom: 0;
+        width: 70%;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: none;
+        border-radius: 14px;
+    }
+`
+export const UserInfo = styled.div`
+    display: flex;  
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+    img{
+        width:40px;
+        height: 40px;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        h5{
+            color: blue;
+        }
+        p{
+            color: white;
+            font-size: .9rem;
+        }
+    }
+`
+export const ConfigUser = styled.div`
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 25px 0px ;
+    width: 73%;
 `
