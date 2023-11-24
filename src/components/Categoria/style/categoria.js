@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ConteinerMenu = styled.div`
-    margin-top: 30px;
+    margin-top: 100px;
     align-items: center;
     display: flex;
     justify-content: center;

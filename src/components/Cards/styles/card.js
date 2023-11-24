@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const CardElement = styled.div`
     width: 220px;
     height: 240px;
-    background-color: rgb(243, 243, 243);
+    background: linear-gradient(to top, rgba(255, 115, 0, 0.483), #ffff 60%);
     border-radius: 14px;
     overflow: hidden;
     margin-left: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
     &:hover{
-        box-shadow: 0 0 5px gray;
+        box-shadow: 0 0 8px rgb(216, 216, 216);
     }
 `
 export const Image = styled.img`
@@ -43,14 +43,17 @@ export const Evento = styled.div`
     }
     button{
         border: none;
-        background-color: rgb(255, 115, 0);
+        background-color: white;
         padding: 5px 15px;
         color: white;
+        color: rgb(72, 72, 72);
+        box-shadow: 0 0 5px rgba(255, 68, 0, 0.516);
+        font-weight: 600;
         border-radius: 14px
        
     }
     button:hover{
-        background-color: orangered;
+        background-color: ;
     }
     
 `

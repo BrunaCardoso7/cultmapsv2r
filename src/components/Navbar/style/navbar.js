@@ -94,6 +94,7 @@ export const Nav = styled.nav`
     }
 `
 export const UserSpace = styled.div`
+    user-select: none;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -113,17 +114,17 @@ export const Space = styled.div`
     border-radius: 14px;
     cursor: pointer;
 `
-export const Menu = styled.div`
-    display: ${(props) => (props.visible ? 'block' : 'none')};  
-    background-color: orange;
-    position: absolute;
-    top:100%;    
-    right: 15%;
-    width:300px;
-    height: 300px;
-    border-radius: 14px;
-    padding:20px;
-`
+// export const Menu = styled.div`
+//     display: ${({visible}) => (visible ? console.log('block') : console.log('none'))};  
+//     background-color: orange;
+//     position: absolute;
+//     top:100%;    
+//     right: 15%;
+//     width:300px;
+//     height: 300px;
+//     border-radius: 14px;
+//     padding:20px;
+// `
 export const ModalUser = styled.div`
     display: flex;
     flex-direction: column;
