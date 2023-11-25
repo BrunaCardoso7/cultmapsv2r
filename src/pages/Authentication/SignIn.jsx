@@ -1,18 +1,24 @@
 import './style/singin.css';
 import Input from '../../components/Input/Input';
+import { signin } from '../../services/userServices';
+
 import { useForm } from 'react-hook-form';
 import { signInSchema } from '../../Schema/signInSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signin } from '../../services/userServices';
+
 import Cookies from 'js-cookie'
 import {  useNavigate } from 'react-router-dom';
+
+
 function SignIn() {
+
   const {register: registerSingin,
          handleSubmit, 
          formState: { errors },
         } = useForm({
             resolver: zodResolver(signInSchema)
   })
+  
   const navigate = useNavigate()
 
   async function inHandleSubmit(data){

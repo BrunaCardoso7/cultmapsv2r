@@ -18,3 +18,8 @@ body{
   width: fit-content;
   overflow-x: hidden;
 }
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

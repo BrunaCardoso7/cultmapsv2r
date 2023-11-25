@@ -12,6 +12,7 @@ import SignIn from './pages/Authentication/SignIn.jsx';
 import { Profile } from './pages/Profiles/Profile.jsx';
 import { UserProvider } from './assets/UserProvider.jsx';
 import { Conta } from './pages/Profiles/Conta.jsx';
+import { FormEventos } from './pages/Profiles/FormEventos.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
         children:[
           {
             path: 'conta',
-            element: <Conta/>
+            element: <Conta/>,
+          },
+          {
+            path: 'cad_evento',
+            element: <FormEventos/>,
           },
         ]
       },

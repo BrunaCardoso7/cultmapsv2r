@@ -12,7 +12,7 @@ export const signup = (data)=>{
     formData.append('email', data.email);
     formData.append('password', data.password); 
 
-    return axios.post(`${baseUrl}users/register`, formData)
+    return axios.post(`${baseUrl}users/register`)
 }   
 
 

@@ -1,20 +1,20 @@
 import styled from 'styled-components'
-    
+import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
 export const Header = styled.div`
+    margin: auto;
     position: fixed;
     top:0;
     width: 100vw;
-    margin: auto;
     background-color:white;
-    margin: auto;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    justify-content: center;
-    gap: 5%;
-    padding: 7px 0;
+    justify-content: space-between;
+    gap: %;
     box-shadow: 0 0 5px rgb(217, 217, 217);
     z-index: 10;    
+    padding: 7px 40px;
     img{
         height: 50px;
         object-fit: cover;
@@ -29,6 +29,12 @@ export const Logo  = styled.div`
     cursor: pointer;
     h2{
         text-decoration: none;
+        font-size: 1.5em;
+        color: black;
+        font-weight: 700;
+    }
+    img{
+        height: 50px;
     }
 `
 export const SearchConteiner  = styled.div`
@@ -36,20 +42,20 @@ export const SearchConteiner  = styled.div`
     display: flex;
     input{
         display: block;
-        width: 20vw;
-        height: 30px;
-        border-radius: 14px;
-        border: none;
-        font-size: .8em;
+        width: 40vw;
+        height: 37px;
+        border-radius: 34px;
+        border: 1px solid gray;
+        font-size: 1em;
         padding: 0 40px;
         background-color: rgba(255, 255, 255, 0.397);
-        box-shadow: 0px 0px 5px rgb(255, 188, 121);
         color: rgb(134, 134, 134);
     }
     :focus{
     outline: 1px solid rgb(172, 172, 172);
+    border: none;
     background-color: rgb(255, 255, 255);
-    font-size: .8em;
+    font-size: 1em;
     color: #696868;
     }
     button{
@@ -58,40 +64,63 @@ export const SearchConteiner  = styled.div`
     }
 
 `
+export const StyledSearchIcon = styled(SearchIcon)({
+    position: 'absolute',
+    left: '92%',
+    top: '20%',
+    color: 'gray',
+    transition: 'color 0.3s ease',
+    cursor: 'pointer',
+    '&:hover': {
+      color: 'rgb(255, 119, 1)',
+      fontSize: '24px',
+    },
+});
 
-export const Button = styled.button`
+export const ButtonSignin = styled.button`
     text-decoration: none;
-    background-color:  rgb(255, 115, 0);
-    border-radius: 14px;
+    background-color: transparent;
+    border-radius: 24px;
     font-weight: 500;
-    font-size: .8em;
+    font-size: 1em;
+    color: black;
+    padding: 10px 35px;
+    border: none;   
+    margin-right: 10px;
+    &:hover{
+       color: gray;
+    }
+`
+export const Buttonsignup = styled.button`
+    text-decoration: none;
+    background-color: black;
+    border-radius: 24px;
+    font-weight: 500;
+    font-size: 1em;
     color: white;
-    padding: 5px 35px;
+    padding: 10px 35px;
     border: none;
     &:hover{
-        background-color: rgb(225, 83, 32);
+        background-color:gray;
     }
 `
 export const Nav = styled.nav`
-    div{
-        display: flex;
-        flex-direction: row;
-        gap: 30px;
-        a{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            justify-content: center;
-            font-weight: 300;
-            font-size: 1em;
-            color: black;
-            text-align: center;
-
-        }a:hover{
-            color: rgb(255, 115, 0);
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    a{
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1em;
+        color: rgb(255, 119, 1) ;
+    }:hover{
+        color: orange;
     }
+`
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: white;
 `
 export const UserSpace = styled.div`
     user-select: none;
@@ -100,31 +129,37 @@ export const UserSpace = styled.div`
     gap: 10px;
     margin-left: 50px;
     width: fit-content;
-   
     img{
-        height: 30px;
+        height: 40px;
+        border-radius: 100%;
     }
 `
 export const Space = styled.div`
     display: flex;
     gap: 15px;
     align-items: center;
-    border: 1px solid gray;
     padding: 5px 20px;
     border-radius: 14px;
     cursor: pointer;
+    p{
+        font-weight: 600;
+        padding: 10px 20px;
+        border: 2px solid black;
+        border-radius: 14px;
+    }
 `
-// export const Menu = styled.div`
-//     display: ${({visible}) => (visible ? console.log('block') : console.log('none'))};  
-//     background-color: orange;
-//     position: absolute;
-//     top:100%;    
-//     right: 15%;
-//     width:300px;
-//     height: 300px;
-//     border-radius: 14px;
-//     padding:20px;
-// `
+export const Menu = styled.div`
+    display:  ${(props) => (props.visible ? 'block' : 'none')};  
+    background-color:    white;
+    border: 2px solid rgb(68, 68, 68);
+    position: absolute;
+    top:100%;    
+    right: 6%;
+    width:300px;
+    height: 300px;
+    border-radius: 7px;
+    padding:10px;
+`
 export const ModalUser = styled.div`
     display: flex;
     flex-direction: column;
@@ -141,35 +176,47 @@ export const ModalUser = styled.div`
 `
 export const UserInfo = styled.div`
     display: flex;  
-    align-items: center;
     width: 100%;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: 20px;
-    padding-bottom: 20px;
+    padding: 10px 0;
+    border-radius: 7px;
     border-bottom: 1px solid white;
+    background-color:   rgb(68, 68, 68);
     img{
-        width:40px;
-        height: 40px;
+        width:50px;
+        height: 50px;
+        border-radius: 100%;
     }
     div{
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: center;
         h5{
-            color: blue;
-        }
-        p{
             color: white;
-            font-size: .9rem;
+            font-weight: 400;
+            font-size: 1em;
         }
     }
 `
 export const ConfigUser = styled.div`
+    margin-top: 10px;
     display: flex;
-    align-items: start;
+    justify-content: center;
     flex-direction: column;
-    gap: 10px;
-    padding: 25px 0px ;
-    width: 73%;
+    gap:0px;
+    p{  
+        text-align: start;
+        width: 100%;
+        padding: 12px 48px ;
+        color: black;
+        font-size: .9em;
+        font-weight: 500;
+    }:hover{
+        border-radius: 14px;
+        background-color: rgb(229, 229, 229);
+
+    }
 `

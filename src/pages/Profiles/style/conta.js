@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const ContaConteiner = styled.div`
-    position: fixed;
-    right:0;
+    padding-bottom: 20px;
+    margin-left: 25vw;
     width:79vw;
     min-height: 100vh;
     height: max-content;
@@ -55,4 +55,40 @@ export const InfomationUser = styled.div`
         font-weight: 300;
         color: gray;
     }
+`
+export const AboutUser = styled.div`
+    margin-top: 50px;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    background-color: transparent;
+    width: 60vw;
+    padding: 20px;
+    display: flex;rgb(66, 66, 66)
+    flex-direction: column;
+    align-items: start;
+    h3{
+        color:  black; 
+        font-weight: 500;
+       padding: 20px 0;
+    }
+    h4{
+        color:  black; 
+        font-weight: 500;
+        padding: 5px 0;
+    }
+    p{
+        padding: 5px;
+        text-align: justify;
+        color: rgb(66, 66, 66); 
+    }
+`
+export const EditButton = styled.button`
+    border-radius: 14px;
+    border: none;
+    padding: 10px 30px;
+    background-color:  rgb(255, 115, 0);
+    color: white;
+    font-weight: 500;
+    margin: 20px 0;
+    
 `

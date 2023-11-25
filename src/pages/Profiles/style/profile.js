@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ProfilerConteiner = styled.div`
     padding-top: 60px;
     display: grid;
@@ -30,6 +29,7 @@ export const Aside = styled.aside`
 export const MenuButton = styled.button`
     padding: 15px 20px;
     border: none;
+    width: 100%;
     border-radius: 14px;
     color: rgb(66, 66, 66);
     text-align: start;
