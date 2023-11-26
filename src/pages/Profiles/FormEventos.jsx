@@ -72,10 +72,11 @@ export  function FormEventos() {
                     name={"localizacao"}
                     register={registerPost}
                 />
-                 <input
+                 <Input
                     type={"file"}
                     placeholder={"Titulo do evento"}
-                    name="file"
+                    name={"file"}
+                    register={registerPost}
                 />
 
                 <button type="submit">enviar</button>
