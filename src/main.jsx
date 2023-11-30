@@ -17,7 +17,7 @@ import { FormEventos } from './pages/Profiles/FormEventos.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Navbar />,
+    element:( <><Navbar /></>),
     errorElement: <NotFoundPages />,
     children: [
       {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <Search />,
       },
       {
-        path: '/profile',
+        path: 'profile',
         element: <Profile />,
         children:[
           {

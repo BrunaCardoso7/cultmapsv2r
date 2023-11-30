@@ -7,14 +7,16 @@ export const Header = styled.div`
         margin: auto;
         position: fixed;
         top:0;
-        width: 100vw;
+        /* left: 0; */
+        width: 100%;
         background-color:white;
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
         box-shadow: 0 0 5px rgb(217, 217, 217);
-        z-index: 10;    
+        z-index: 10000;    
         padding: 14px 5px;
+        -webkit-position: fixed;
         img{
             height: 50px;
             object-fit: cover;
@@ -98,11 +100,10 @@ export const StyledSearchIcon = styled(SearchIcon)({
     fontSize: '3em !important',
     color: 'black',
     marginTop: '8px',
-
     '@media (min-width: 1024px)': {
         fontSize: '2.5em !important',
         position: 'absolute',
-        left: '-23%',
+        left: '-28%',
         top: '9%',
         color: 'gray',
         transition: 'color 0.3s ease',
@@ -115,6 +116,7 @@ export const StyledSearchIcon = styled(SearchIcon)({
 });
 
 export const ButtonSignin = styled.button`
+    display: none;
     text-decoration: none;
     background-color: transparent;
     border-radius: 24px;
@@ -123,14 +125,20 @@ export const ButtonSignin = styled.button`
     color: black;
     padding: 10px 35px;
     border: none;   
-    margin-right: 10px;
     &:hover{
        color: gray;
     }
+    @media(min-width: 1024px){
+        display: block;
+        margin-right: 10px;
+    }
 `
 export const Buttonsignup = styled.button`
+    position: fixed;
+    top: 1.5%;
+    right:1%;
     text-decoration: none;
-    background-color: black;
+    background-color: black !important; 
     border-radius: 24px;
     font-weight: 500;
     font-size: 1em;
@@ -138,7 +146,21 @@ export const Buttonsignup = styled.button`
     padding: 10px 35px;
     border: none;
     &:hover{
-        background-color:gray;
+        background-color: gray !important;
+    }
+    @media(min-width: 1024px){
+        position: static;
+        text-decoration: none;
+        background-color: black !important;
+        border-radius: 24px;
+        font-weight: 500;
+        font-size: 1em;
+        color: white;
+        padding: 10px 35px;
+        border: none;
+        &:hover{
+            background-color: gray !important;
+        }
     }
 `
 export const Nav = styled.nav`
@@ -227,6 +249,7 @@ export const Menu = styled.div`
     height: 300px;
     border-radius: 7px;
     padding:10px;
+    
 `
 export const ModalUser = styled.div`
     display: flex;

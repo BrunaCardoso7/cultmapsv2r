@@ -26,7 +26,7 @@ const SignUpForm = () => {
    })
 
    
-   // const handlePasswordChange = (e) => {
+  //  const handlePasswordChange = (e) => {
   //   setPassword(e.target.value);
   //   validatePasswordAndSetError(e.target.value, confirmPassword);
   // };
@@ -52,14 +52,17 @@ const SignUpForm = () => {
   const navigate = useNavigate()
 
     async function upHandleSubmit(data){
+
         try {
           const response = await signup(data)
-          console.log(response.data)
+
+          console.log("resposta",response.data)
           console.log(response.data.token)
           Cookies.set("token", response.data.token, { expires: 1 })
           navigate('/')
         } catch (error) {
-          console.log(error)
+          console.log(data)
+          console.log('error',error)
         }
     }
 
@@ -84,14 +87,15 @@ const SignUpForm = () => {
                 register={registerSingup}
               />
             </div>
-
             <div className="input-box">
               <label htmlFor="lastname">Usuário</label>
-              <Input type="text" 
-                placeholder="nome usuário" 
-                name="usuario"
+              <Input
+                type={"text"}
+                placeholder={"digite seu usuário"}
+                name={"usuario"}
                 register={registerSingup}
               />
+
             </div>
 
             <div className="input-box">

@@ -1,0 +1,202 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    width: 0;
+    height: 0;
+
+}
+.logo img{
+    width: 180px;
+    position: relative;
+    bottom: 130px;
+    right: 400px;
+
+}
+.form-box{
+    background-color: rgba(122, 122, 122, 0.4);
+    backdrop-filter: blur(40px);
+    padding: 30px 40px;
+    width: 500px;
+    height: 80%;
+    border-radius: 20px ;
+}
+.form-box h2{
+    font-size: 30px;
+    text-align: center;
+}
+.form-box p{
+    font-weight: bold;
+    color: #000000;
+}
+.form-box p a{
+    color: #ff6600;
+    text-decoration: none;
+}
+.form-box form{
+    margin: 20px 0;
+}
+form .senha{
+    margin-bottom: 15px;
+}
+form .senha label{
+    color: #000000;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    text-align: start;
+}
+form .senha input{
+    width: 100%;
+    height: 47px;
+    background-color: #ffff;
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid transparent;
+    padding: 15px;
+    font-size: 15px;
+    color: #000000;
+    transition: all 0.4s ease;
+    position: relative;
+}
+form .senha input:focus{
+    border-color: rgba(255, 194, 82, 0.986);
+}
+form .user{
+    margin-bottom: 15px;
+}
+form .user label{
+    color: #000000;
+    text-align: start;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form .user input{
+    width: 100%;
+    height: 47px;
+    background-color:#ffff;
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid transparent;
+    padding: 15px;
+    font-size: 15px;
+    color:#000000;
+    transition: all 0.4s ease;
+}
+form .user input:focus{
+    border-color: rgba(255, 194, 82, 0.986);
+}
+
+form .senha p{
+    color: #000000;
+    font-size: 12px;
+    display: flex;
+    justify-content:end;
+}
+form .senha p:hover{
+    color: #ff6600;
+    outline: 0;
+}
+form .Entrada button{
+    width: 100%;
+    height: 47px;
+    background: #ff6600;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    margin-top: 15px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.Entrada p{
+    display: flex;
+    justify-content: center;
+}
+
+.senha i{
+    font-size: 20px;
+    position: absolute;
+    bottom: 55%;
+    right: 12%;
+    cursor: pointer;
+    color: #000000;
+    
+}
+.icones {
+    display:flex ;
+    justify-content: center;
+    align-items: center; 
+    justify-content: center;
+
+    margin-right: 45%;
+  }
+  
+  
+  #Icons p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  #Icons a {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    margin: 0 5px;
+    color: #FFF;
+    text-align: center;
+    
+  }
+  
+
+  
+  
+@media (max-width:480px) {
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing:border-box;  
+    }
+    body{
+        width: 100vw;
+        height: 100vh;
+        padding: 0%;
+  
+        
+    }
+    
+    .form-box{
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        overflow: hidden;
+    }
+    .form-box h2{
+        padding-bottom: 110px;
+    }
+    .form-box form{
+        margin: 0%;
+        padding-bottom: 100px;
+    }
+    .senha i{
+        top: 50%;
+        right: 14%;
+    }
+    .form-box h2{
+        padding:30px ;
+    }
+}

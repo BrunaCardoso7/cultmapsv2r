@@ -1,22 +1,18 @@
-import { useState, useEffect, useRef } from 'react'
-
+import { useState, useEffect } from 'react'
 import './styles/cards.css'
 import Card from './Card.jsx'
-import { ConteinerCards } from './styles/cards.js'
-import { motion } from 'framer-motion'
 import { getAllEventos } from '../../services/postServices'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { ConteinerCards } from './styles/cards';
+
 
 // eslint-disable-next-line react/prop-types
 export default function Cards({title}) {
-    const carrosel = useRef()
+    // eslint-disable-next-line no-unused-vars
     const [eventos, seteventos] = useState([])
-    const [width, setWidth] = useState(0)
-
-    useEffect(()=>{
-        setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth)
-    }, [])
-
-
+    console.log("quantidade de cards na api: ", eventos.length)
     async function findAlleventos() {
 
         const response = await getAllEventos();
@@ -30,24 +26,31 @@ export default function Cards({title}) {
             findAlleventos()
     }, [])
 
-    return(
-        <ConteinerCards >
-            <h2>{title}</h2>
-
-            <motion.div ref={carrosel} className='carrosel'
-                whileTap={{cursor: "grabbing"}}>
-                <motion.div className='inner'
-                    dragConstraints={{right: 0, left: -width}}
-                    drag="x">
-                    {
-                        eventos.map((evento, index)=>{
-                           return <Card 
-                                    key={index} 
-                                    events={evento}/>
-                        })
-                    }
-                </motion.div>
-            </motion.div>
-        </ConteinerCards>
-    )
+    return (
+    <ConteinerCards>
+      <h2>{title}</h2>
+      <Swiper 
+       
+        className="mySwiper"
+        breakpoints={{
+          768: {
+            slidesPerView: 5,
+            spaceBetween: 50
+          },
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 140
+          },
+        }}
+      >
+        {
+            eventos.map((evento, index) => (
+                <SwiperSlide key={index}>
+                    <Card key={index} events={evento} />
+                </SwiperSlide>
+            ))
+        }
+      </Swiper>
+    </ConteinerCards>
+  );
 }

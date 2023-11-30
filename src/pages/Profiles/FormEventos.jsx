@@ -73,6 +73,12 @@ export  function FormEventos() {
                     register={registerPost}
                 />
                  <Input
+                    type={"date"}
+                    placeholder={"localização"}
+                    name={"localizacao"}
+                    register={registerPost}
+                />
+                 <Input
                     type={"file"}
                     placeholder={"Titulo do evento"}
                     name={"file"}

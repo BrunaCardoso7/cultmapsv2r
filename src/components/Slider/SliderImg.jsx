@@ -16,7 +16,7 @@ export default  function SliderImg(){
       };
     
       return (
-        <div style={{ width: '100vw', height: 'fit-content', marginTop: "60px"}}>
+        <div style={{ width: '100vw', height: 'fit-content', marginTop: "60px", marginBottom:"60px"}}>
           <Slider {...settings}>
             <Slide>
               <img src="https://images.sympla.com.br/64efa6a10bc88-lg.jpg" alt="Imagem 1"/>

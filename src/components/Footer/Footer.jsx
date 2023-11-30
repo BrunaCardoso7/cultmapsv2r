@@ -1,18 +1,24 @@
-import { FooterComp, FooterWrapper, FooterHeader, NavFooter, MenuFooter } from './style/footer.js'
+import { FooterComp, FooterWrapper, FooterHeader, NavFooter, MenuFooter,Image,HeaderCOnt, StyledInstagramIcon, StyledFacebookIcon } from './style/footer.js'
 export default function Footer(){
     return(
         <FooterComp>
             <FooterWrapper>
-                <FooterHeader>
-                    <div className="logo">
-                        <h2 id="logo-cult">Cult</h2>
-                        <h2 id="logo-maps">Maps</h2>
+                <HeaderCOnt>
+                    <FooterHeader>
+                        <Image src="/4594c240-b078-4b13-ae58-d75772d76e81.png" alt="" />
+                        <div className="logo">
+                            <h2 id="logo-cult" className="notranslate">Cult</h2>
+                            <h2 id="logo-maps" className="notranslate">Maps</h2><small>BR</small>
+                        </div>
+                        <div className="rede-sociais">
+                            <small>Development</small>
+                        </div>
+                    </FooterHeader>
+                    <div className='social'>
+                        <StyledFacebookIcon/>
+                        <StyledInstagramIcon/>
                     </div>
-                    <div className="rede-sociais">
-                        <i className="fa-brands fa-square-instagram">logo</i>
-                        <i className="fa-brands fa-facebook">logo   </i>
-                    </div>
-                </FooterHeader>
+                </HeaderCOnt>
                 <NavFooter>
                     <MenuFooter>
                         <a href="" className="destac">Regiao</a>

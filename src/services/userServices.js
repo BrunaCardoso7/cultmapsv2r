@@ -1,7 +1,8 @@
 import axios from "axios";
-const baseUrl = 'https://cultmaps.onrender.com/'
 import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode';
+
+const baseUrl = 'https://cultmaps.onrender.com/'
 
 export const signup = (data)=>{
     const formData = new FormData()
@@ -11,11 +12,12 @@ export const signup = (data)=>{
     formData.append('usuario', data.usuario);
     formData.append('email', data.email);
     formData.append('password', data.password); 
+    console.log(data)
 
-    return axios.post(`${baseUrl}users/register`)
+    console.log(formData)
+
+    return axios.post(`${baseUrl}users/register`, formData)
 }   
-
-
 
 export const userLogged=()=>{
     const token = Cookies.get("token");

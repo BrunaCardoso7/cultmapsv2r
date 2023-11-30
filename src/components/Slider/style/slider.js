@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Slide = styled.div`
+
     height: fit-content;
     display: flex;
     flex-direction: column;

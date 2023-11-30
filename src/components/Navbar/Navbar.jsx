@@ -30,6 +30,7 @@ export default function Navbar(){
     const {user, setUser} = useContext(UserContext);
     const [menuVisible, setMenuVisible] = useState(false);
     // const [inputVisible, setInputVisible] = useState(false);
+    console.log("testando user: ", user)
     const handleModal = () => {
       setMenuVisible((menuVisible) => !menuVisible);
       console.log(menuVisible)
@@ -72,7 +73,7 @@ export default function Navbar(){
             <StyledLink to={'/'}>
                 <Logo>
                     <img src="images/favicon_io/WhatsApp-Image-2023-11-02-at-19.41.41-removebg-preview.png" alt=""/>
-                    <h2>CultMaps</h2>
+                    <h2 className="notranslate">CultMaps</h2>
                 </Logo>
             </StyledLink>
             <Nav>
@@ -88,12 +89,11 @@ export default function Navbar(){
                     </button>
                 </SearchConteiner>  
             </form>
-            {user&& (
+            {user !== null && (
                 // menu do perfil
                 <UserSpace>
                     <Space >
-                        
-                         {user.perfil && user.perfil.src ? (
+                         {user.perfil && user.perfil.src && (
                             <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
                                 <StyledLink to={'/profile/cad_evento'}><AddIconStyled/></StyledLink> 
                                 <button type='submit'>
@@ -102,16 +102,9 @@ export default function Navbar(){
                                 <StyledLink to={'/profile/cad_evento'}><p>Zona de criação</p></StyledLink> 
                               <img src={user.perfil.src} onClick={handleModal} alt="" />
                             </div>
-                        ): (
-                            <div className="sign">
-                                    <StyledLink to={"/auth"}><ButtonSignin>Registre-se</ButtonSignin></StyledLink>
-                                    <StyledLink to={"/login"}><Buttonsignup>Entrar</Buttonsignup></StyledLink>
-                            </div>
+                            
                         )}
                     </Space>
-
-
-
                     <Menu visible={menuVisible}>
                         <ModalUser >
                             <UserInfo>
@@ -132,12 +125,17 @@ export default function Navbar(){
                     </Menu>
                 </UserSpace>
             )}
-            
-            <div className="sub-nav">
-                <i className="fa-solid fa-bars" id="btn-menu"></i>
-            </div>
+            {
+                user && Object.keys(user).length === 0 &&(
+                    <div className="sign" style={{display: "flex"}}>
+                        <StyledLink to={"/auth"}><ButtonSignin>Registre-se</ButtonSignin></StyledLink>
+                        <StyledLink to={"/login"}><Buttonsignup>Entrar</Buttonsignup></StyledLink>
+                    </div> 
+                )
+            }
+          
         </Header>
-        {errors.title && <span>{errors.title.message}</span>}
+        {/* {errors.title && <span>{errors.title.message}</span>} */}
         <Outlet/>
     </header>
   )
