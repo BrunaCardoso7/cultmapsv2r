@@ -1,6 +1,6 @@
 import {  useContext, useState } from "react"
 import { UserContext } from "../../assets/UserProvider"
-import { ProfilerConteiner, Body, Aside,NavProfiler, MenuButton, PerfilProfile, OpenMenu } from "./style/profile"
+import { ProfilerConteiner, Body,NavProfiler, MenuButton, PerfilProfile, OpenMenu } from "./style/profile"
 // import { Link } from "react-router-dom"
 // import { Conta } from "./Conta"
 import { Link, Routes } from "react-router-dom"
@@ -13,13 +13,49 @@ import Home from "../Home/Home"
 
 const LinkedStyle = styled(Link)`
     text-decoration: none;
-
 `
+const Aside = styled.aside`
+  transform: ${(props) => (props.view ? 'translateX(0)' : 'translateX(-85%)')};
+  transition: transform 0.2s ease-in-out;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 60vw;
+  padding-top: 100px;
+  box-shadow: 0 0 5px gray;
+  padding-right: 10px;
+  h2 {
+    padding-left: 30px;
+    color: rgb(96, 96, 96);
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: start;
+  }
+  @media (min-width: 1024px) {
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 20vw;
+    padding-top: 100px;
+    h2 {
+      padding-left: 30px;
+      color: rgb(96, 96, 96);
+      font-size: 1.2em;
+      font-weight: 500;
+      text-align: start;
+    }
+  }
+`;
+
 
 export function Profile(){
     const [ buttonActive, setbuttonActive ]= useState("Conta")
-    const [menuActive, setMenuActive]= useState(true)
     const {user} = useContext(UserContext)
+    const [menuActive, setMenuActive]= useState(true)
     
     function handleRoute(buttonNamed){
         if(buttonNamed !== buttonActive){
@@ -40,13 +76,12 @@ export function Profile(){
     return (
         <Body>
             <ProfilerConteiner>
-                <OpenMenu onClick={handdleMenu}/>
                 <Aside view={menuActive}>
+                <OpenMenu onClick={handdleMenu}/>
                     <NavProfiler>
                         <h2>Zona de criação</h2>
-                    {/* <LinkedStyle to={"/profile/conta"}><MenuButton clicked ={buttonActive === "Conta"} onClick={()=>handleRoute("Conta")}>Conta</MenuButton></LinkedStyle> */}
                         <LinkedStyle to={"/profile/conta"}>
-                            <MenuButton clicked={buttonActive === "Conta"} onClick={() => handleRoute("Conta")}>Conta</MenuButton>
+                            <MenuButton clicked={buttonActive === "Conta"} onClick={() => handleRoute("Conta")}>Perfil</MenuButton>
                         </LinkedStyle>
                         <LinkedStyle to={"/profile/eventos"}>
                             <MenuButton clicked ={buttonActive === "Meus Eventos"} onClick={()=>handleRoute("Meus Eventos")}>Meus Eventos</MenuButton>
