@@ -7,10 +7,11 @@ export function getAllEventos (){
 
     return response
 }
-export function searchEventos(title){
-    const response = axios.get(`${baseUrl}eventos/search?title=${title}`)
-    
-    return response
+
+export async function searchEventos(title){
+    const response = await axios.get(`${baseUrl}eventos/search?title=${title}`)
+    console.log("service: ", response.data.results)
+    return response.data.results
 }
 
 export function postEventos (data){

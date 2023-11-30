@@ -7,7 +7,7 @@ export const Header = styled.div`
         margin: auto;
         position: fixed;
         top:0;
-        /* left: 0; */
+        left: 0;
         width: 100%;
         background-color:white;
         display: flex;

@@ -1,5 +1,12 @@
 
 import { Outlet, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'; 
+// import {zodResolver} from '@hookform/resolvers/zod'
+// import { searchSchema } from '../../Schema/searchcSchema.js';
+import { userLogged } from '../../services/userServices.js';
+import { useContext, useEffect, useState } from 'react';
+import Cookies from 'js-cookie'
+import { UserContext } from '../../assets/UserProvider.jsx';
 import {Header, 
     Logo, 
     SearchConteiner, 
@@ -15,38 +22,33 @@ import {Header,
     StyledLink,
     AddIconStyled
     } from './style/navbar.js'
-import { useForm } from 'react-hook-form'; 
-import {zodResolver} from '@hookform/resolvers/zod'
-import { searchSchema } from '../../Schema/searchcSchema.js';
-import { userLogged } from '../../services/userServices.js';
-import { useContext, useEffect, useState } from 'react';
-import Cookies from 'js-cookie'
-import { UserContext } from '../../assets/UserProvider.jsx';
+import { searchEventos } from '../../services/postServices.js';
 
   
 
 
 export default function Navbar(){
+    const { register, handleSubmit } = useForm()
+        
     const {user, setUser} = useContext(UserContext);
     const [menuVisible, setMenuVisible] = useState(false);
     // const [inputVisible, setInputVisible] = useState(false);
-    console.log("testando user: ", user)
+    const navigate = useNavigate()
+
+    
+    async function handleSubmitSearch(data){
+        const response = await searchEventos(data.title)
+        navigate(`/search/${data.title}`)
+        console.log(response)
+    }
+
     const handleModal = () => {
       setMenuVisible((menuVisible) => !menuVisible);
       console.log(menuVisible)
     };
 
-    // eslint-disable-next-line no-undef, no-unused-vars
-    const {register, handleSubmit, reset, formState: {errors}} = useForm({
-        resolver: zodResolver(searchSchema)
-    })
-    const navigate = useNavigate()
 
-    function onSearch(data){
-        const {title} = data
-        navigate(`/search/${title}`)
-        reset()
-    }
+
 
     async function findUserLogged(){
         const response = await userLogged();
@@ -81,14 +83,14 @@ export default function Navbar(){
                     <a href="#" style={{color: "black", fontSize:".8em"}}> | </a>
                     <a href="eventos.html"> Eventos</a>
             </Nav>
-            <form onSubmit={handleSubmit(onSearch)}>
-                <SearchConteiner>
-                    <input {...register("title")} type="text" placeholder="Pesquisar eventos"/>
-                    <button type='submit'>
-                      <StyledSearchIcon/>
-                    </button>
-                </SearchConteiner>  
-            </form>
+                    <form onSubmit={handleSubmit(handleSubmitSearch)}>
+                        <SearchConteiner>
+                                    <input {...register("title")} type="text" placeholder="Pesquisar eventos"/>
+                                    <button type='submit'>
+                                        <StyledSearchIcon/>
+                                    </button>
+                        </SearchConteiner>  
+                    </form>
             {user !== null && (
                 // menu do perfil
                 <UserSpace>

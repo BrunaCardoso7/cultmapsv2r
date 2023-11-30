@@ -1,32 +1,46 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { searchEventos } from "../../services/postServices"
+import { searchEventos } from "../../services/postServices" 
+import Card from "../../components/Cards/Card"
+import { CardsConteiner, ConteinerSearch, TextP } from "./style/search"
+import Footer from "../../components/Footer/Footer"
 
 export default function Search() {
     
     const { title } = useParams()
     
-    console.log(typeof title)
-    const [eventos, setEventos] = useState([])
+    const [posts, setPosts] = useState([])
 
-    async function getSearch(){
-        try {       
-            const evtApi = await searchEventos(title)
-    
-            setEventos(evtApi.data)
-            console.log(eventos)
-        } catch (error) {
+    async function search(){
+         try {
+            const response = await searchEventos(title)
+            setPosts(response)
+            console.log("teste: ",posts)
+         } catch (error) {
             console.log(error)
-            setEventos([])
-        }
+            setPosts([])
+         }
     }
-
     useEffect(()=>{
-        getSearch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        search()
     }, [title])
-
-    return(
-        <h1>{title}</h1>
+    return( 
+        <body>
+            <ConteinerSearch>
+                <h3>Pesquisa: {title}</h3>
+                <TextP>eventos encontrados: {posts.length}</TextP>
+                <CardsConteiner>
+                    {
+                        posts.map((evento, index)=>(
+                            <Card
+                                key={index}
+                                events={evento}
+                            />
+                        ))
+                    }
+                </CardsConteiner>
+            <Footer/>
+            </ConteinerSearch>
+        </body>
     )
 }
