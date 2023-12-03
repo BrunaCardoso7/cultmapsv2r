@@ -10,6 +10,7 @@ import Cookies from 'js-cookie'
 import {  useNavigate } from 'react-router-dom';
 import { StyledLink } from '../../components/Navbar/style/navbar';
 import { jwtDecode } from 'jwt-decode';
+import { Body } from './style/singnin';
 function SignIn() {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -36,7 +37,7 @@ function SignIn() {
     }
   }
   return(
-    <body>
+    <Body>
      <div className="form-box">
         <h2>Login</h2>
         <form onSubmit={handleSubmit(inHandleSubmit)}>
@@ -90,7 +91,7 @@ function SignIn() {
 
         </form>
       </div>
-    </body>
+    </Body>
   )
 }
 
