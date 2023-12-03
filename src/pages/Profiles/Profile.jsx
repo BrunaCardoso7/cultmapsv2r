@@ -7,8 +7,9 @@ import { Link, Routes } from "react-router-dom"
 import styled from "styled-components"
 import { FormEventos } from "./FormEventos"
 import { Route } from "react-router-dom"
-import { Conta } from "./Conta"
+// import { Conta } from "./Conta"
 import Home from "../Home/Home"
+import Perfil from "../Perfil/Perfil"
 
 
 const LinkedStyle = styled(Link)`
@@ -93,11 +94,11 @@ export function Profile(){
                 </Aside>
                 <PerfilProfile>
                     <Routes>
-                        <Route path="/conta" element={<Conta />} /> 
+                        <Route path="/conta" element={<Perfil/>} /> 
                         <Route path="/eventos" element={<Home/>}/>
                         <Route path="/cad_evento" element={<FormEventos/>}/>
                     </Routes>
-                    {/* <FormEventos/> */}
+                    
                 </PerfilProfile>
             </ProfilerConteiner>
         </Body>

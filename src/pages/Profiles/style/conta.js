@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const ContaConteiner = styled.div`
+    margin-top: -90px;
     padding-bottom: 20px;
-    margin-left: 25vw;
-    width:79vw;
+    /* margin-left: 25vw; */
+    width:100vw;
     min-height: 100vh;
     height: max-content;
     background-color: ;

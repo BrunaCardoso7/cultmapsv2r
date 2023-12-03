@@ -11,8 +11,9 @@ import SignUpForm from './pages/Authentication/SignUp.jsx';
 import SignIn from './pages/Authentication/SignIn.jsx';
 import { Profile } from './pages/Profiles/Profile.jsx';
 import { UserProvider } from './assets/UserProvider.jsx';
-import { Conta } from './pages/Profiles/Conta.jsx';
+// import { Conta } from './pages/Profiles/Conta.jsx';
 import { FormEventos } from './pages/Profiles/FormEventos.jsx';
+import Perfil from './pages/Perfil/Perfil.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
         children:[
           {
             path: 'conta',
-            element: <Conta/>,
+            element: <Perfil/>,
           },
           {
             path: 'cad_evento',
