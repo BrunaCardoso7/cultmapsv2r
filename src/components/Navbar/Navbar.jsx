@@ -119,7 +119,7 @@ export default function Navbar(){
                                 </div>
                             </UserInfo>
                             <ConfigUser>
-                                <StyledLink to={"/profile"}><p>Perfil</p></StyledLink>  
+                                <StyledLink to={"/profile/conta"}><p>Perfil</p></StyledLink>  
                                 <StyledLink to={"/"}><p>Configuração</p></StyledLink>  
                             </ConfigUser>
                                 <button onClick={logout}>signout</button>
