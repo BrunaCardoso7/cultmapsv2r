@@ -6,6 +6,7 @@ import { UserContext } from '../../assets/UserProvider';
 
 export default function Perfil() {
     const { user } = useContext(UserContext)
+    // eslint-disable-next-line no-unused-vars
     const [backgroundImage, setBackgroundImage] = useState(null);
     const [profileImage, setProfileImage] = useState(null);
   
@@ -71,27 +72,28 @@ export default function Perfil() {
   
         <div className="caminhos">
           <p>Publicações</p>
-          <p>Eventos curtidos</p>
-          {/* <p>Publicações de Seguidores</p> */}
-          <p>Eventos salvos</p>
+          <p>Curtidos</p>
+          <p>Favoritos</p>
         </div>
   
-        <div className="boxPost">
-          <div className="toda">
-            <h3>Todas as Publicações</h3>
-          </div>
-  
-          <div className="postagem">
-            <div className="miniImg">
-              <img src="tanj.jpg" alt="Miniatura da Postagem" />
-              <p>
-                Nome
-                <br />
-                22/22/22
-              </p>
+
+          <div className="boxPost">
+
+            <div className="toda">
+              <h3>Todas as Publicações</h3>
+            </div>
+
+            <div className="postagem">
+              <div className="miniImg">
+                <img src="tanj.jpg" alt="Miniatura da Postagem" />
+                <p>
+                  Nome
+                  <br />
+                  22/22/22
+                </p>
+              </div>
             </div>
           </div>
-        </div>
       </ContaConteiner>
     );
 }

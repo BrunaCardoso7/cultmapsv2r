@@ -16,7 +16,7 @@ const LinkedStyle = styled(Link)`
     text-decoration: none;
 `
 const Aside = styled.aside`
-  transform: ${(props) => (props.view ? 'translateX(0)' : 'translateX(-85%)')};
+  transform: ${(props) => (props.view ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 0.2s ease-in-out;
   background-color: #ffffff;
   position: fixed;
@@ -35,6 +35,7 @@ const Aside = styled.aside`
     text-align: start;
   }
   @media (min-width: 1024px) {
+    transform: ${(props) => (props.view ? 'translateX(0)' : 'translateX(-85%)')};
     background-color: #ffffff;
     position: fixed;
     top: 0;

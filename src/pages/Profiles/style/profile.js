@@ -2,7 +2,18 @@ import styled from "styled-components";
 import LaunchIcon from '@mui/icons-material/Launch';
 
 export const OpenMenu = styled(LaunchIcon)({
-  marginLeft: "90%"
+    marginLeft: "90%",
+    position: "absolute",
+    top: "8%",
+    left: "10%",
+    backgroundColor: "gray",
+    fontSize: "3rem !important",
+    padding: "5px",
+    color: "white" ,
+    '@media (min-width: 1024px)': {
+        top: "9%",
+    }
+
 })
 export const ProfilerConteiner = styled.div`
     padding-top: 130px;
@@ -25,6 +36,7 @@ export const Aside = styled.aside`
     padding-top: 100px;
     box-shadow: 0 0 5px gray;
     padding-right: 10px;
+    z-index: 999;
     h2{
         padding-left: 30px;
         color: rgb(96, 96, 96);
