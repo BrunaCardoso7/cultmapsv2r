@@ -21,7 +21,7 @@ export default function Home(){
                 </Section>
                 <Section>
                     {/* <CategoriaMenu/> */}
-                    <Cards title={"Tecnologia Animes e Geeks"}/>
+                    <Cards title={"Tecnologia Games e Geeks"}/>
                     <SubSlider/>
                     <Cards title={"Cursos e Workshops"}/>
                 </Section>

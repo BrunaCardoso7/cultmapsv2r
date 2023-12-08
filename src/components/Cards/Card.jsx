@@ -4,14 +4,14 @@ import { CardElement, Image,Evento } from "./styles/card"
 // eslint-disable-next-line react/prop-types
 export default function Card({events}) {
     // eslint-disable-next-line react/prop-types
-    console.log(events.author)
+    console.log(events.nome)
     return (
         <CardElement>
             <Image src={events.image}/>
             <Evento>
                 <a href="#">{events.categoria}</a>
                 <h5>{events.nome}</h5>
-                <p>{events.data}<span> | </span>{events.local}</p>
+                <p>{events.data}<span> | </span>{events.localizacao}</p>
                 <button>Ver Evento</button>
             </Evento>
         </CardElement>

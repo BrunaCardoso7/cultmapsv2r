@@ -13,13 +13,14 @@ export default function Cards({title}) {
     // eslint-disable-next-line no-unused-vars
     const [eventos, seteventos] = useState([])
     console.log("quantidade de cards na api: ", eventos.length)
+    // eventos.map(evento => console.log(evento.categoria))
+    console.log(title)
+    console.log(eventos)
     async function findAlleventos() {
-
-        const response = await getAllEventos();
-        
-        let dados = response.data.results
-
-        seteventos(dados)
+  
+          const response = await getAllEventos();
+          let dados = response.data.results
+          seteventos(dados)
     }
 
     useEffect(()=>{
@@ -44,7 +45,8 @@ export default function Cards({title}) {
         }}
       >
         {
-            eventos.map((evento, index) => (
+            eventos.filter(evento => evento.categoria === title)
+            .map((evento, index) => (
                 <SwiperSlide key={index}>
                     <Card key={index} events={evento} />
                 </SwiperSlide>
