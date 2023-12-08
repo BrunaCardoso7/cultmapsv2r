@@ -1,16 +1,14 @@
 import styled from "styled-components";
 
 export const ConteinerPage = styled.div`
-    margin-top: 20px;
-    padding-bottom: 20px;
-    margin-left: 25vw;
-    width:79vw;
+    margin: 0px auto;
+    width:100vw;
     min-height: 100vh;
     height: max-content;
     background-color: ;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     h2{ 
         text-align: start;
         margin-left: 20px;

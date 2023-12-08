@@ -38,20 +38,33 @@ export const userLogged=()=>{
       return response;
 }
 
-
-
 export const signin=(data)=>{
-    const formData = new FormData
+    // const token = Cookies.get('token')
+
+    const formData = new FormData()
     formData.append('email', data.email)
     formData.append('password', data.password)
 
     return axios.post(`${baseUrl}auth/login`, formData)
 }
 
+export const putEvents = (data)=>{
+  const formData = new FormData()
+  console.log(data.perfil[0])
+  console.log(data.background[0])
+  formData.append('perfil', data.perfil[0])
+  formData.append('background', data.background[0])
+  
+  return axios.patch(`${baseUrl}users/`, formData)
+
+}
 
 
-
-
+// return axios.post(`${baseUrl}auth/login`, formData, {
+//   headers:{
+//     Authorization: `Bearer ${token}`
+//   }
+// })
 
 
 // function genenateUserName(name){

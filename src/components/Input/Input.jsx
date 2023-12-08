@@ -5,3 +5,8 @@ export default function Input({type, placeholder, register,name}) {
         <InputSpace type={type} placeholder={placeholder} {...register(name)} />
     )
 }
+// export function TextArea({ placeholder, register, name}){
+//     return(
+//         <TextArea placeholder={placeholder}{...register(name)}></TextArea>
+//     )
+// }

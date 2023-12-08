@@ -15,8 +15,7 @@ export async function searchEventos(title){
 }
 
 export function postEventos (data){
-    try {
-        
+    try {    
         const token = Cookies.get("token")
     
         const formData = new FormData();
@@ -25,12 +24,20 @@ export function postEventos (data){
         // formData.append('usuario_id', userId)
         console.log(data.file[0])
         formData.append('nome', data.nome)
-        formData.append('author', data.autor)
+        formData.append('autor', data.autor)
         formData.append('descricao', data.descricao)
         formData.append('categoria', data.categoria)
         formData.append('data', data.data)
+        formData.append('dataOpt', data.dataOpt)
         formData.append('localizacao', data.localizacao)
-        formData.append('file', data.file[0])
+        formData.append('faixaEtaria', data.faixaEtaria)
+        formData.append('organizadores', data.organizadores)
+        formData.append('patrocinadores', data.patrocinadores)
+        if (data.file && data.file.length > 0) {
+            console.log(data.file[0]);
+            formData.append('file', data.file[0])
+        }
+
     
         const response = axios.post(`${baseUrl}eventos/`, formData, {
             headers: {

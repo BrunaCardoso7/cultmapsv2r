@@ -1,10 +1,18 @@
 import { useContext, useState } from 'react';
-// import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import './perfil.css';
 import { ContaConteiner } from '../Profiles/style/conta';
 import { UserContext } from '../../assets/UserProvider';
+import { useForm } from 'react-hook-form';
+import { putEvents } from '../../services/userServices';
 
 export default function Perfil() {
+  const {
+    register: registerUser,
+    handleSubmit,
+    // eslint-disable-next-line no-unused-vars
+    // formState: { errors }
+    } = useForm()
     const { user } = useContext(UserContext)
     // eslint-disable-next-line no-unused-vars
     const [backgroundImage, setBackgroundImage] = useState(null);
@@ -23,40 +31,58 @@ export default function Perfil() {
         reader.readAsDataURL(file);
       }
     };
-  
+    
+    async function imagensProfile (data){
+      try {
+        const response = await putEvents(data)
+        return response
+        
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
     const bannerStyle = {
       backgroundImage: `url(${user.background.src})`,
     };
-  
+    
+
+
     return (
       <ContaConteiner>
-        <label htmlFor="inputr" className="banner" style={bannerStyle}>
-          <input
-            id="inputr"
-            type="file"
-            onChange={(e) => handleImageChange(e, setBackgroundImage)}
-            accept="image/*"
-          />
-          <div className="banner-content">
-            <p>
-              <i className="fas fa-pen"></i>Selecione uma imagem
-            </p>
-          </div>
-        </label>
-  
-        <label htmlFor="inputrPerfil" className="imgPerfil">
-          <input
-            id="inputrPerfil"
-            type="file"
-            onChange={(e) => handleImageChange(e, setProfileImage)}
-            accept="image/*"
-            style={{ display: 'none' }}
-          />
-          <div className='camera'>
-            <i className="fa-solid fa-camera"></i>
-          </div>
-          {profileImage && <img src={user.perfil.src} alt="Imagem do Perfil" />}
-        </label>
+        <form onSubmit={handleSubmit(imagensProfile)}>
+          <label htmlFor="inputr" className="banner" style={bannerStyle}>
+            <input
+              id="inputr"
+              type="file"
+              name='perfil'
+              {...registerUser('perfil')}
+              onChange={(e) => handleImageChange(e, setBackgroundImage)}
+              accept="image/*"
+            />
+            <div className="banner-content">
+              <p>
+                <i className="fas fa-pen"></i>Selecione uma imagem
+              </p>
+            </div>
+          </label>
+          <label htmlFor="inputrPerfil" className="imgPerfil">
+            <input
+              id="inputrPerfil"
+              type="file"
+              name='background'
+              {...registerUser('background')}
+              onChange={(e) => handleImageChange(e, setProfileImage)}
+              accept="image/*"
+              style={{ display: 'none' }}
+            />
+            <div className='camera'>
+              <i className="fa-solid fa-camera"></i>
+            </div>
+            {profileImage && <img src={user.perfil.src} alt="Imagem do Perfil" />}
+          </label>
+          <button type="submit">salva alteração</button>
+        </form>
   
         <div className="conteinetInfo">
             <div className="nome">
