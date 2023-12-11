@@ -99,7 +99,6 @@ export function Profile(){
                         <Route path="/eventos" element={<Home/>}/>
                         <Route path="/cad_evento" element={<FormEventos/>}/>
                     </Routes>
-                    
                 </PerfilProfile>
             </ProfilerConteiner>
         </Body>

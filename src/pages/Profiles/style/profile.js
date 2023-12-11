@@ -16,9 +16,12 @@ export const OpenMenu = styled(LaunchIcon)({
 
 })
 export const ProfilerConteiner = styled.div`
-    padding-top: 130px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    padding-top: 30px;
+    @media(min-width: 1024px){ 
+        padding-top: 130px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
 `
 export const Body = styled.body`
     width: 100vw;

@@ -5,6 +5,24 @@ import { ContaConteiner } from '../Profiles/style/conta';
 import { UserContext } from '../../assets/UserProvider';
 import { useForm } from 'react-hook-form';
 import { putEvents } from '../../services/userServices';
+import styled from 'styled-components';
+
+const PerfilConterner = styled(ContaConteiner)`
+    margin-top: 0px;
+    
+  @media(min-width: 1024px){
+    margin-top: 350px;
+    padding-bottom: 20px;
+    /* margin-left: 25vw; */
+    width:100vw;
+    min-height: 100vh;
+    height: max-content;
+    background-color: ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
 
 export default function Perfil() {
   const {
@@ -49,7 +67,7 @@ export default function Perfil() {
 
 
     return (
-      <ContaConteiner>
+      <PerfilConterner>
         <form onSubmit={handleSubmit(imagensProfile)}>
           <label htmlFor="inputr" className="banner" style={bannerStyle}>
             <input
@@ -120,6 +138,6 @@ export default function Perfil() {
               </div>
             </div>
           </div>
-      </ContaConteiner>
+      </PerfilConterner>
     );
 }

@@ -8,7 +8,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* box-shadow: 5px 3px 5px rgba(82, 82, 82, 0.434); */
   cursor: pointer;
   background-position: center;
   background-size: cover;   
