@@ -15,7 +15,7 @@ export const Header = styled.header`
         flex-wrap: nowrap;
         box-shadow: 0 0 5px rgb(217, 217, 217);
         z-index: 999;    
-        padding: 14px 5px;
+        padding: 14px 20px;
         -webkit-position: fixed;    
         img{
             height: 50px;

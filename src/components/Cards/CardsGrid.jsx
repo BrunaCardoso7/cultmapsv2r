@@ -33,7 +33,7 @@ export function CardsGrid({title}) {
                 {
                     eventos.filter(evento => evento.categoria === title)
                     .map((evento, index) => (
-                            <Card key={index} events={evento} />
+                            <Card key={index} {...evento} />
                     ))
                 }
             </EventosCont>

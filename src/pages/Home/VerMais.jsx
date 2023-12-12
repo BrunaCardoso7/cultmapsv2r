@@ -1,7 +1,15 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { getAllEventos } from "../../services/postServices";
-import { Body, Main } from "./style/vermais";
+import { Body, ConteinerText } from "./style/vermais";
+import { ButtonMain } from "../../components/Button/Button";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const LinkStyled = styled(Link)`
+    margin: 0 auto;
+`
+
 
 export default function VerMais() {
     const [eventos, seteventos] = useState([])
@@ -38,10 +46,15 @@ export default function VerMais() {
 
 function Evento (eventoPage){
     return(
-        <Body>
+        <Body >
             <img src={eventoPage.image} alt="" />
             <h1>{eventoPage.nome}</h1>
-            <p>{eventoPage.descricao}</p>
+            <ConteinerText>
+                <h3>Localização: <span>{eventoPage.localizacao}</span></h3>
+                <h3>Data: <span>{eventoPage.data}</span></h3>
+                <p>{eventoPage.descricao}</p>
+                 <LinkStyled to={'/'}><ButtonMain text={'Voltar para home'}/></LinkStyled>
+            </ConteinerText>
         </Body>
     )
 }

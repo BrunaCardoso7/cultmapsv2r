@@ -51,7 +51,7 @@ export  function FormEventos() {
         }
     }
     return(
-        <ConteinerPage style={{marginTop: "80px"}}>
+        <ConteinerPage >
             <form onSubmit={handleSubmit(postHandleSubmit)}>
                 <div className="App">
                     <p className="com">Compartilhe seu evento</p>

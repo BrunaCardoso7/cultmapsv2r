@@ -23,9 +23,15 @@ export function Eventos() {
     return(
         <Body>
             <CategoriaMenu/>
-            <Main style={{ marginTop: "150px"}}>
+            <Main >
             <Section>
                 <CardsGrid title={"Cursos e Workshops"}/>
+            </Section> 
+            <Section>
+                <CardsGrid title={"Tecnologia Games e Geeks"}/>
+            </Section>  
+            <Section>
+                <CardsGrid title={"Congresso e Palestras"}/>
             </Section> 
             <Section>
                 <CardsGrid title={"Festas e Shows"}/>
@@ -40,14 +46,8 @@ export function Eventos() {
                 <CardsGrid title={"Pride"}/>
             </Section>  
             <Section>
-                <CardsGrid title={"Tecnologia Games e Geeks"}/>
-            </Section>  
-            <Section>
                 <CardsGrid title={"Esporte"}/>
             </Section>  
-            <Section>
-                <CardsGrid title={"Congresso e Palestras"}/>
-            </Section> 
             <Section>
                 <CardsGrid title={"Saúde e Bem estar"}/>
             </Section> 

@@ -34,7 +34,7 @@ export default function Search() {
                         posts.map((evento, index)=>(
                             <Card
                                 key={index}
-                                events={evento}
+                                {...evento}
                             />
                         ))
                     }
