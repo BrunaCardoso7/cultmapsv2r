@@ -45,19 +45,9 @@ export function MeusEventos(){
     return(
         <ContaConteiner>
 
-                <Main>
 
-                    <h2>Todos os eventos postados por você: </h2>
-                    <EvtConteiner>
-                        
-                        {
-                            // eventos.filter(evento => console.log(evento.userId.toString() === userId.toString()))
-                            // .map( (evento, index) =>(
-                            //         <Card key={index} events={evento}/>
-                            // ))
-                        }
-                    </EvtConteiner>
-                </Main>
+                <h2>Todos os eventos postados por você: </h2>
+
                 <Outlet/>
 
         </ContaConteiner>

@@ -1,4 +1,3 @@
-
 export const validatePassword = (password, confirmPassword) => {
     // eslint-disable-next-line no-unused-vars
     const regex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;

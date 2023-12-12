@@ -9,37 +9,31 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Input from '../../components/Input/Input';
 import { signup } from '../../services/userServices';
 import Cookies  from 'js-cookie'
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { validatePassword } from './cadastro.js';
 
 const SignUpForm = () => {
+
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
-  // const [password, setPassword] = useState('');
-  // const [confirmPassword, setConfirmPassword] = useState('');
-  // const [passwordError, setPasswordError] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
-  const {register: registerSingup,
-    handleSubmit, 
-    // formState: { errors },
-   } = useForm({
-       resolver: zodResolver(signupSchema)
-   })
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    validatePasswordAndSetError(e.target.value, confirmPassword);
+  };
 
-   
-  //  const handlePasswordChange = (e) => {
-  //   setPassword(e.target.value);
-  //   validatePasswordAndSetError(e.target.value, confirmPassword);
-  // };
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+    validatePasswordAndSetError(password, e.target.value);
+  };
 
-  // const handleConfirmPasswordChange = (e) => {
-  //   setConfirmPassword(e.target.value);
-  //   validatePasswordAndSetError(password, e.target.value);
-  // };
-
-  // const validatePasswordAndSetError = (password, confirmPassword) => {
-  //   const error = validatePassword(password, confirmPassword);
-  //   setPasswordError(error);
-  // };
+  const validatePasswordAndSetError = (password, confirmPassword) => {
+    const error = validatePassword(password, confirmPassword);
+    setPasswordError(error);
+  };
 
   const handleTogglePasswordVisibility = (field) => {
     if (field === 'password') {
@@ -48,7 +42,18 @@ const SignUpForm = () => {
       setConfirmPasswordVisible(!confirmPasswordVisible);
     }
   };
+  
 
+  
+  const {
+      register: registerSingup,
+      handleSubmit, 
+    // formState: { errors },
+   } = useForm({
+       resolver: zodResolver(signupSchema)
+   })
+
+  //n apagar
   const navigate = useNavigate()
 
     async function upHandleSubmit(data){
@@ -69,102 +74,121 @@ const SignUpForm = () => {
   return (
 
     <div className="container">
-        
-      <div className="form-image">
-        <img src="WhatsApp Image 2023-11-11 at 21.20.52.jpeg" alt="" />
-      </div>
+    <div className="form-image">
+      <img src="Nordeste.png" alt="" />
+    </div>
 
-      <div className="form" >
-        <form onSubmit={handleSubmit(upHandleSubmit)} encType="multipart/form-data">
-          <h1>Cadastre-se</h1>
+    <div className="form">
+      <form onSubmit={handleSubmit(upHandleSubmit)}  encType="multipart/form-data">
+        <h1>Cadastre-se</h1>
 
-          <div className="input-group">
-            <div className="input-box">
-              <label htmlFor="firstname">Nome</label>
-              <Input type="text" 
-                placeholder="nome" 
-                name="nome"
+        <div className="input-group">
+         
+          <div className="input-box">
+            <label htmlFor="firstname">Nome</label>
+            <Input 
+                id="firstname"
+                type={"text"} 
+                placeholder={"Digite seu nome"} 
+                name={"nome"}
                 register={registerSingup}
+                required
               />
-            </div>
-            <div className="input-box">
-              <label htmlFor="lastname">Usuário</label>
-              <Input
-                type={"text"}
-                placeholder={"digite seu usuário"}
+            {/* <input id="firstname" type="text" name="firstname" placeholder="Digite seu nome"/> */}
+          </div>
+
+          <div className="input-box">
+            <label htmlFor="lastname">Usuário</label>
+            <Input 
+                id="lastname"
+                type={"text"} 
+                placeholder={"Digite seu sobrenome"} 
                 name={"usuario"}
                 register={registerSingup}
+                required
               />
-
-            </div>
-
-            <div className="input-box">
-              <label htmlFor="email">E-mail</label>
-              <Input type="email" 
-                placeholder="E-mail" 
-                name="email"
-                register={registerSingup}
-              />
-            </div>
-
-            <div className="input-box">
-              <select name="bairro" id="bairros" required>
-                <optgroup label="">
-                  <option value="" disabled selected hidden>Cidade</option>
-                </optgroup>
-                <option className="option" value="bairro1">Teresina</option>
-                <option className="option" value="bairro2">Nazaria</option>
-                <option className="option" value="bairro3">Picos</option>
-              </select>
-            </div>
-
-            <div className="input-box">
-              <label htmlFor="password" id="labelSenha"> Senha </label>
-              <Input type="password" 
-                placeholder="senha" 
-                name="password"
-                register={registerSingup}
-              />
-              <i
-                className={`fa ${passwordVisible ? 'fa-eye' : 'fa-eye-slash'}`}
-                id="eyeIcon1"
-                onClick={() => handleTogglePasswordVisibility('password')}
-              ></i>
-              {/* <span id="passwordError" className="error" dangerouslySetInnerHTML={{ __html: passwordError }}></span> */}
-            </div>
-
-            <div className="input-box">
-              <label htmlFor="confirmPassword" id="labelConfirmarSenha">
-                Confirme sua Senha
-              </label>
-              <Input type="password" 
-                placeholder="confimar senha" 
-                name="passwordConfirm"
-                register={registerSingup}
-              />
-              <i
-                className={`fa ${confirmPasswordVisible ? 'fa-eye' : 'fa-eye-slash'}`}
-                id="eyeIcon2"
-                onClick={() => handleTogglePasswordVisibility('confirmPassword')}
-              ></i>
-            </div>
-
-            <div className="label-float">
-              <input type="checkbox" id="privacyCheckbox" required />
-              <label htmlFor="privacyCheckbox" id="privacyLabel">
-                Eu concordo com os termos de privacidade
-              </label>
-              <p>Já tem uma conta? <Link to={'/login'}>entra</Link></p>
-            </div>
+            {/* <input id="lastname" type="text" name="lastname" placeholder="Digite seu sobrenome" required /> */}
           </div>
 
-          <div className="continue-button">
-            <button type="submit">Cadastrar</button>
+          <div className="input-box">
+            <label htmlFor="email">E-mail</label>
+            <Input 
+                id="email"
+                type={"text"} 
+                placeholder={"Digite seu e-mail"} 
+                name={"email"}
+                register={registerSingup}
+                required
+              />
+            {/* <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required /> */}
           </div>
-        </form>
-      </div>
+
+          <div className="input-box">
+            <select name="" id="bairros" required>
+              <optgroup label="">
+                <option value="" disabled selected hidden>Cidade</option>
+              </optgroup>
+              <option className="option" value="bairro1">Teresina</option>
+              <option className="option" value="bairro2">Nazaria</option>
+              <option className="option" value="bairro3">Picos</option>
+            </select>
+          </div>
+
+          <div className="input-box">
+            <label htmlFor="password" id="labelSenha"> Senha </label>
+            <input
+              id="password"
+              type={passwordVisible ? 'text' : 'password'}
+              name={"password"}
+              placeholder="Digite sua senha"
+              {...registerSingup('password')}
+              required
+              value={password}
+              onChange={handlePasswordChange}
+            />
+            <i
+              className={`fa ${passwordVisible ? 'fa-eye' : 'fa-eye-slash'}`}
+              id="eyeIcon1"
+              onClick={() => handleTogglePasswordVisibility('password')}
+            ></i>
+            <span id="passwordError" className="error" dangerouslySetInnerHTML={{ __html: passwordError }}></span>
+          </div>
+
+          <div className="input-box">
+            <label htmlFor="confirmPassword" id="labelConfirmarSenha">
+              Confirme sua Senha
+            </label>
+            <input
+              id="confirmPassword"
+              type={confirmPasswordVisible ? 'text' : 'password'}
+              name="confirmPassword"
+              placeholder="Confirme a senha"
+              required
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+            />
+            <i
+              className={`fa ${confirmPasswordVisible ? 'fa-eye' : 'fa-eye-slash'}`}
+              id="eyeIcon2"
+              onClick={() => handleTogglePasswordVisibility('confirmPassword')}
+            ></i>
+          </div>
+
+          <div className="label-float">
+            <input type="checkbox" id="privacyCheckbox" required />
+            <label htmlFor="privacyCheckbox" id="privacyLabel">
+              Eu concordo com os termos de privacidade
+            </label>
+          </div>
+        </div>
+
+        <div className="continue-button">
+          <button type="submit">Cadastrar</button>
+        </div>
+      </form>
     </div>
-  );
-};
-
+  </div>
+);
+  
+  }
 export default SignUpForm;

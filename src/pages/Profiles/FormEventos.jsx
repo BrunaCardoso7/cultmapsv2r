@@ -17,15 +17,17 @@ export  function FormEventos() {
         // eslint-disable-next-line no-unused-vars
         // formState: { errors }
     } = useForm()
-    const [imageURL, setImageURL] = useState(null);
+    
+    const [imageURL, setImageURL] = useState("");
 
     const handleImageChange = (e) => {
-      const file = e.target.file[0];
-      if (file) {
-        const imageURL = URL.createObjectURL(file);
-        setImageURL(imageURL);
-      }
-    };
+        const file = e.target.files[0]; 
+
+        if (file) {
+          const imageURL = URL.createObjectURL(file);
+          setImageURL(imageURL);
+        }
+      };
     
     const navigate = useNavigate()
     
@@ -56,13 +58,14 @@ export  function FormEventos() {
                 <div className="App">
                     <p className="com">Compartilhe seu evento</p>
                     
+                    
                     <label htmlFor="input" id="area" style={{ backgroundImage: `url(${imageURL})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                        
                        <input
                         id="input"
                         type="file"
                         onChange={handleImageChange}
-                            {...registerPost("file")}
+                        {...registerPost("file")}
                         />
                         <i className="far fa-image"></i><p>Selecione uma imagem</p>
                     </label>
@@ -124,9 +127,6 @@ export  function FormEventos() {
                             />
                         </div>
 
-                        <p>Até</p>
-
-
                         <div className="data">
                             <label>opcional</label>
                             <Input
@@ -171,53 +171,5 @@ export  function FormEventos() {
             <Outlet/>
         </ConteinerPage>
     )
-    // <h2>Compartilhe seu evento</h2>
-    // <form onSubmit={handleSubmit(postHandleSubmit)}  encType="multipart/form-data">
-    //     <Input
-    //         type={"text"}
-    //         placeholder={"Titulo do evento"}
-    //         name={"nome"}
-    //         register={registerPost}
-    //     />
-    //      <Input
-    //         type={"text"}
-    //         placeholder={"Autor"}
-    //         name={"author"}
-    //         register={registerPost}
-    //     />
-    //      <Input
-    //         type={"text"}
-    //         placeholder={"Descrição"}
-    //         name={"descricao"}
-    //         register={registerPost}
-    //     />
-    //      <Input
-    //         type={"select"}
-    //         placeholder={"categoria"}
-    //         name={"categoria"}
-    //         register={registerPost}
-    //     >
-    //         <option value="1">teste</option>
-    //     </Input>
-    //        <Input
-    //         type={"text"}
-    //         placeholder={"localização"}
-    //         name={"localizacao"}
-    //         register={registerPost}
-    //     />
-    //      <Input
-    //         type={"date"}
-    //         placeholder={"localização"}
-    //         name={"localizacao"}
-    //         register={registerPost}
-    //     />
-        //  <Input
-        //     type={"file"}
-        //     placeholder={"Titulo do evento"}
-        //     name={"file"}
-        //     register={registerPost}
-        // />
-
-    //     <button type="submit">enviar</button>
-    // </form>
+    
 }

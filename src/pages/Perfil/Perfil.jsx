@@ -62,7 +62,9 @@ export default function Perfil() {
     const bannerStyle = {
       backgroundImage: `url(${user.background.src})`,
     };
-    
+    const perfilStyle = {
+      backgroundImage: `url(${user.perfil.src})`,
+    };
 
 
     return (
@@ -83,7 +85,7 @@ export default function Perfil() {
               </p>
             </div>
           </label>
-          <label htmlFor="inputrPerfil" className="imgPerfil">
+          <label htmlFor="inputrPerfil" className="imgPerfil" style={perfilStyle}>
             <input
               id="inputrPerfil"
               type="file"
@@ -91,7 +93,7 @@ export default function Perfil() {
               {...registerUser('background')}
               onChange={(e) => handleImageChange(e, setProfileImage)}
               accept="image/*"
-              style={{ display: 'none' }}
+              style={{ display: "none"}}
             />
             <div className='camera'>
               <i className="fa-solid fa-camera"></i>

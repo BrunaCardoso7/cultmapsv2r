@@ -8,7 +8,11 @@ export const EvtConteiner =  styled.div`
     margin: 0 auto;
 `
 export const Main = styled.main` 
-    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: translate(-50%, -50%);
+    /* display: flex;
     flex-direction: column;
     align-items: start;
     gap: 20px;
@@ -25,5 +29,5 @@ export const Main = styled.main`
         font-size: 1.2rem;
         padding-left: 15%;
         }
-    }
+    } */
 `

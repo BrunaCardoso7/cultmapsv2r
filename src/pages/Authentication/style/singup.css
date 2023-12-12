@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -7,33 +8,36 @@
 }
 body{
     background-color: rgb(247, 235, 226);
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 100%;
-    align-items: center;
-    
+    display: flex;
+  
 }
 
 
 .container {
- 
-    grid-column: 1 / span 2;
-    grid-row: 1;
+    width: 100%;
+    height:100vh;
+    display: flex;
+    position: relative;
     background-color: rgb(247, 235, 226);
+
 }
 
 .form-image {
-    grid-column: 1;
-    grid-row: 1;
+    width: 400px;
+    display: flex;
     background-color: #fde3a7d7;
-    position: fixed;
+    position:fixed ;
+}
+
+.form-image img {
+    width: 100%;
+    height:100vh;
 }
 
 .form h1{
     text-align: center;
     margin-bottom: 50px;
 }
-
 .form {
     width: 50%;
     height: 100%;
@@ -44,7 +48,6 @@ body{
     left: 400px;
 
 }
-
 #eyeIcon1{
     cursor: pointer;
     width: 20px;
@@ -54,7 +57,6 @@ body{
     font-size: 20px;
 
 }
-
 #eyeIcon2{
     cursor: pointer;
     width: 20px;
@@ -104,7 +106,6 @@ body{
     position: absolute;
     border-radius: 10px;
 }
-
 #bairros{
     margin: 0.6rem 0;
     padding: 20px;
@@ -117,21 +118,20 @@ body{
     border: 2px solid ;
     border-color: #b6b6b6c0;
     box-shadow: 1px 1px 6px #0000001c;
+    height: 60px;
 
 }
-
 #bairros:focus{
 border-color: rgb(255, 185, 128);
 }
-
 .input-box input:focus,
 .input-box select:focus {
     outline: none;
+  
 }
-
 .input-box span{
-    color: rgb(255, 0, 0);
-    font-size: 15px;
+  color: rgb(255, 0, 0);
+  font-size: 15px;
 }
 
 .input-group {
@@ -206,23 +206,4 @@ border-color: rgb(255, 185, 128);
     font-size: 0.93rem;
     font-weight: 500;
     color: #fff;
-}
-
-@media (max-width: 768px) {
-    body {
-        grid-template-columns: 1fr;
-    }
-    .form {
-        width: 100%;
-        left: 0;
-    }
-    .form-image {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .form {
-        margin-top: 20px;
-    }
 }
