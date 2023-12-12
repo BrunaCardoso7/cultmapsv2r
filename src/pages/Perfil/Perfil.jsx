@@ -98,7 +98,6 @@ export default function Perfil() {
             </div>
             {profileImage && <img src={user.perfil.src} alt="Imagem do Perfil" />}
           </label>
-          <button type="submit">salva alteração</button>
         </form>
   
         <div className="conteinetInfo">
