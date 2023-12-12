@@ -155,7 +155,7 @@ form .Entrada button{
   
   
 @media (max-width:480px) {
-    *{
+    /* *{
       margin: 0;
       padding: 0;
       box-sizing:border-box;  
@@ -166,7 +166,7 @@ form .Entrada button{
         padding: 0%;
   
         
-    }
+    } */
     
     .form-box{
         background-color: rgb(160, 160, 160);

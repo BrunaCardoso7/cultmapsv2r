@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { searchEventos } from "../../services/postServices" 
 import Card from "../../components/Cards/Card"
-import { CardsConteiner, ConteinerSearch, TextP } from "./style/search"
+import { Body, CardsConteiner, ConteinerSearch, TextP } from "./style/search"
 import Footer from "../../components/Footer/Footer"
 
 export default function Search() {
@@ -25,7 +25,7 @@ export default function Search() {
         search()
     }, [title])
     return( 
-        <body>
+        <Body>
             <ConteinerSearch>
                 <h3>Pesquisa: {title}</h3>
                 <TextP>eventos encontrados: {posts.length}</TextP>
@@ -41,6 +41,6 @@ export default function Search() {
                 </CardsConteiner>
             <Footer/>
             </ConteinerSearch>
-        </body>
+        </Body>
     )
 }

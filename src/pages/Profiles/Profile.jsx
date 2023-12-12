@@ -7,10 +7,8 @@ import { Link, Routes } from "react-router-dom"
 import styled from "styled-components"
 import { FormEventos } from "./FormEventos"
 import { Route } from "react-router-dom"
-// import { Conta } from "./Conta"
-import Home from "../Home/Home"
 import Perfil from "../Perfil/Perfil"
-
+import { MeusEventos } from "./MeusEventos"
 
 const LinkedStyle = styled(Link)`
     text-decoration: none;
@@ -85,7 +83,7 @@ export function Profile(){
                         <LinkedStyle to={"/profile/conta"}>
                             <MenuButton clicked={buttonActive === "Conta"} onClick={() => handleRoute("Conta")}>Perfil</MenuButton>
                         </LinkedStyle>
-                        <LinkedStyle to={"/profile/eventos"}>
+                        <LinkedStyle to={"/profile/meuseventos"}>
                             <MenuButton clicked ={buttonActive === "Meus Eventos"} onClick={()=>handleRoute("Meus Eventos")}>Meus Eventos</MenuButton>
                         </LinkedStyle>
                         <LinkedStyle to={"/profile/cad_evento"}>
@@ -96,7 +94,7 @@ export function Profile(){
                 <PerfilProfile>
                     <Routes>
                         <Route path="/conta" element={<Perfil/>} /> 
-                        <Route path="/eventos" element={<Home/>}/>
+                        <Route path="/meuseventos" element={<MeusEventos/>}/>
                         <Route path="/cad_evento" element={<FormEventos/>}/>
                     </Routes>
                 </PerfilProfile>

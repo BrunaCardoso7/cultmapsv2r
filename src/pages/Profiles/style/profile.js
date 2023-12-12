@@ -25,7 +25,7 @@ export const ProfilerConteiner = styled.div`
 `
 export const Body = styled.body`
     width: 100vw;
-    height: 100vh;
+    overflow-x: hidden;
     background-color: white;
 `
 export const Aside = styled.aside`

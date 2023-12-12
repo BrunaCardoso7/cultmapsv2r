@@ -1,19 +1,24 @@
 /* eslint-disable react/prop-types */
+import { StyledLink } from "../Navbar/style/navbar"
 import { CardElement, Image,Evento } from "./styles/card"
 
 // eslint-disable-next-line react/prop-types
-export default function Card({events}) {
+export default function Card(props) {
+    const id = props.id
+    // };
     // eslint-disable-next-line react/prop-types
-    console.log(events.nome)
+    console.log(props.nome)
+
     return (
         <CardElement>
-            <Image src={events.image}/>
+            <Image src={props.image}/>
             <Evento>
-                <a href="#">{events.categoria}</a>
-                <h5>{events.nome}</h5>
-                <p>{events.data}<span> | </span>{events.localizacao}</p>
-                <button>Ver Evento</button>
+                <a href="#">{props.categoria}</a>
+                <h5>{props.nome}</h5>
+                <p>{props.data}<span> | </span>{props.localizacao}</p>
+               <StyledLink to={`/vermais/${id}`}><button >Ver Evento</button></StyledLink> 
             </Evento>
         </CardElement>
+
     )
 }

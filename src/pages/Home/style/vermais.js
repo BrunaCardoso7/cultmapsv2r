@@ -1,10 +1,12 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Body = styled.body`
     background-color: white !important;
     width: 100vw;
-    height: max-content;
+    height: 100vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
 `
 
 export const Main = styled.main`

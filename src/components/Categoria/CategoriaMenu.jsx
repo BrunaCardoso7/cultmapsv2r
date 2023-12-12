@@ -1,28 +1,7 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { ConteinerMenu, Select, ButtonCategoria, ConteinerCategoria } from "./style/categoria"
-export default function CategoriaMenu() {
-    const [isDragging, setDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-  
-    const handleMouseDown = (e) => {
-      setDragging(true);
-      setStartX(e.pageX - e.currentTarget.scrollLeft);
-    };
-  
-    const handleMouseMove = (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
-      const x = startX - e.pageX ;
-      e.currentTarget.scrollLeft = startX + x;
-    };
-  
-    const handleMouseUp = () => {
-      setDragging(false);
-    };
-  
-    const handleMouseLeave = () => {
-      if (isDragging) setDragging(false);
-    };
+export function CategoriaMenu() {
+    
     return(
         <ConteinerMenu >
             <Select name="opt">
@@ -41,25 +20,15 @@ export default function CategoriaMenu() {
                     <option value="Moda e Beleza">Moda e Beleza</option>
                 </optgroup>
             </Select>
-            <ConteinerCategoria
-                
-                  onMouseDown={handleMouseDown}
-                  onMouseUp={handleMouseUp}
-                  onMouseLeave={handleMouseLeave}
-                  onMouseMove={handleMouseMove}
-            >
-                <ButtonCategoria>Favoritos</ButtonCategoria>
-                <ButtonCategoria>Shows</ButtonCategoria>
-                <ButtonCategoria>Infantil</ButtonCategoria>
-                <ButtonCategoria>Pride</ButtonCategoria>
-                <ButtonCategoria>Tecnologia</ButtonCategoria>
-                <ButtonCategoria>Cinema</ButtonCategoria>
-                <ButtonCategoria>Cursos</ButtonCategoria>
-                <ButtonCategoria>Esportes</ButtonCategoria>
-                <ButtonCategoria>Artes</ButtonCategoria>
-                <ButtonCategoria>Esportes</ButtonCategoria>
-                <ButtonCategoria>Esportes</ButtonCategoria>
-
+            <ConteinerCategoria>
+                <ButtonCategoria value={'Festas e Shows'}>Shows</ButtonCategoria>
+                <ButtonCategoria value="Infantil">Infantil</ButtonCategoria>
+                <ButtonCategoria value="Pride">Pride</ButtonCategoria>
+                <ButtonCategoria value="Tecnologia Games e Geeks">Tecnologia</ButtonCategoria>
+                <ButtonCategoria value="Artes Cinemas e Lazer">Cinema</ButtonCategoria>
+                <ButtonCategoria value="Cursos e Workshops">Cursos</ButtonCategoria>
+                <ButtonCategoria value="Esporte">Esportes</ButtonCategoria>
+                <ButtonCategoria value="Artes Cinemas e Lazer">Artes</ButtonCategoria>
             </ConteinerCategoria>
         </ConteinerMenu>
     )

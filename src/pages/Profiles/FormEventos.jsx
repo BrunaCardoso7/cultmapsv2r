@@ -2,13 +2,13 @@ import { useForm } from "react-hook-form";
 import Input from "../../components/Input/Input";
 import { ConteinerPage } from "./style/formevento";
 import { useState } from "react";
-
 import './style/form.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 // import { zodResolver } from "@hookform/resolvers/zod";
 // import { postSchema } from "../../Schema/postSchma";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import {  postEventos } from "../../services/postServices";
+
 
 export  function FormEventos() {
     const {
@@ -51,7 +51,7 @@ export  function FormEventos() {
         }
     }
     return(
-        <ConteinerPage>
+        <ConteinerPage style={{marginTop: "0px"}}>
             <form onSubmit={handleSubmit(postHandleSubmit)}>
                 <div className="App">
                     <p className="com">Compartilhe seu evento</p>
@@ -168,6 +168,7 @@ export  function FormEventos() {
                 
                 </div>
             </form>
+            <Outlet/>
         </ConteinerPage>
     )
     // <h2>Compartilhe seu evento</h2>

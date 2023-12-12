@@ -1,4 +1,10 @@
 import styled from "styled-components";
+
+export const Body = styled.body`
+    background-color: white !important;
+    height: max-content;
+    position: relative;
+`
 export const ConteinerSearch = styled.main`
     margin-top: 120px;
     width: 100vw;

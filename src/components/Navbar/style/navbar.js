@@ -3,20 +3,20 @@ import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
 
-export const Header = styled.div`
+export const Header = styled.header`
         margin: auto;
         position: fixed;
         top:0;
         left: 0;
-        width: 100%;
+        width: 100vw;
         background-color:white;
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
         box-shadow: 0 0 5px rgb(217, 217, 217);
-        z-index: 10000;    
+        z-index: 999;    
         padding: 14px 5px;
-        -webkit-position: fixed;
+        -webkit-position: fixed;    
         img{
             height: 50px;
             object-fit: cover;

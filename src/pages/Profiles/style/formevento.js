@@ -3,9 +3,7 @@ import styled from "styled-components";
 export const ConteinerPage = styled.div`
     margin: 0px auto;
     width:100vw;
-    min-height: 100vh;
     height: max-content;
-    background-color: ;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -9,7 +9,6 @@ import styled from 'styled-components';
 
 const PerfilConterner = styled(ContaConteiner)`
     margin-top: 0px;
-    
   @media(min-width: 1024px){
     margin-top: 350px;
     padding-bottom: 20px;

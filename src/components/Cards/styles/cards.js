@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 export const ConteinerCards = styled.div`
-    margin: 50px auto;
-    width: max-content;
-    max-width: 88vw;
+    margin:  auto;
+    width: fit-content;
+
     height: max-content;
-    background-color: traansparent;
     display: flex;
     flex-direction: column;
     h2{
@@ -16,4 +15,10 @@ export const ConteinerCards = styled.div`
         margin-left: 10px;
     }
     
+`
+export const EventosCont = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 0 auto;
 `

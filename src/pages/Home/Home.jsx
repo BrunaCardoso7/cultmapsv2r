@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import Cookies from 'js-cookie'
 import Footer from '../../components/Footer/Footer'
 export default function Home(){
+
     useEffect(()=>{
         console.log(Cookies.get("token"))
     }, [])
@@ -20,9 +21,11 @@ export default function Home(){
                     <Slider/>
                 </Section>
                 <Section>
-                    {/* <CategoriaMenu/> */}
+                    {/* <CategoriaMenu/>     */}
                     <Cards title={"Tecnologia Games e Geeks"}/>
+                 
                     <SubSlider/>
+
                     <Cards title={"Cursos e Workshops"}/>
                 </Section>
             <Footer/>
