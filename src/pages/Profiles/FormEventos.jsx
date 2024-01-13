@@ -11,28 +11,34 @@ import {  postEventos } from "../../services/postServices";
 
 
 export  function FormEventos() {
+    const [imageURL, setImageURL] = useState("");
     const {
         register: registerPost,
         handleSubmit,
+        setValue,
         // eslint-disable-next-line no-unused-vars
         // formState: { errors }
     } = useForm()
     
-    const [imageURL, setImageURL] = useState("");
 
     const handleImageChange = (e) => {
+        console.log('mudado')
         const file = e.target.files[0]; 
-
+        console.log("teste: "+file)
         if (file) {
           const imageURL = URL.createObjectURL(file);
+          console.log("test"+imageURL)
           setImageURL(imageURL);
+          setValue('file', file)
         }
-      };
+    }
     
     const navigate = useNavigate()
     
     async function postHandleSubmit(data){
+        console.log("Conteúdo do objeto data:", data);
         try {
+            
             const response = await postEventos(data);
             
             console.log("dados evento:"+response.data)
@@ -52,21 +58,27 @@ export  function FormEventos() {
               }
         }
     }
+
+
     return(
         <ConteinerPage >
-            <form onSubmit={handleSubmit(postHandleSubmit)}>
+            <form  onSubmit={handleSubmit(postHandleSubmit)} encType="multipart/form-data">
                 <div className="App">
                     <p className="com">Compartilhe seu evento</p>
                     
                     
                     <label htmlFor="input" id="area" style={{ backgroundImage: `url(${imageURL})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                        
-                       <input
-                        id="input"
-                        type="file"
-                        onChange={handleImageChange}
-                        {...registerPost("file")}
+                        <input
+                            id="input"
+                            type="file"
+                            name="file"
+                            onChange={(e) => {
+                                handleImageChange(e);
+                            }}
+                            ref = {registerPost()}
                         />
+                        
                         <i className="far fa-image"></i><p>Selecione uma imagem</p>
                     </label>
 

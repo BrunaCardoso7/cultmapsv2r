@@ -1,5 +1,6 @@
 import axios from "axios"
 import Cookies from "js-cookie"
+import { jwtDecode } from "jwt-decode"
 const baseUrl = 'https://cultmaps.onrender.com/'
 
 export function getAllEventos (){
@@ -16,13 +17,15 @@ export async function searchEventos(title){
 
 export function postEventos (data){
     try {    
+
         const token = Cookies.get("token")
     
+        const userId = jwtDecode(token)
+        console.log(userId.id)
         const formData = new FormData();
-        console.log(data)
     
-        // formData.append('usuario_id', userId)
-        console.log(data.file[0])
+        formData.append('userId', userId.id)
+        console.log(data.file)
         formData.append('nome', data.nome)
         formData.append('autor', data.autor)
         formData.append('descricao', data.descricao)
@@ -33,10 +36,10 @@ export function postEventos (data){
         formData.append('faixaEtaria', data.faixaEtaria)
         formData.append('organizadores', data.organizadores)
         formData.append('patrocinadores', data.patrocinadores)
-        if (data.file && data.file.length > 0) {
-            console.log(data.file[0]);
-            formData.append('file', data.file[0])
-        }
+
+        console.log("data"+data.file);
+        formData.append('file', data.file);
+
 
     
         const response = axios.post(`${baseUrl}eventos/`, formData, {
@@ -49,4 +52,22 @@ export function postEventos (data){
     } catch (error) {
         console.log(error)
     }
+}
+
+export function getEventsUser(){
+    try {
+        console.log('deu certo')
+        const token = Cookies.get("token")
+    
+        const response = axios.get(`${baseUrl}eventos/byUser`, {
+            headers: {
+                Authorization : `Bearer ${token}`
+            }
+        })
+        return response
+    } catch (error) {
+        console.log('merda')
+        return error
+    }
+
 }

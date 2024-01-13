@@ -1,16 +1,17 @@
-import { getAllEventos } from '../../services/postServices';
+import { getAllEventos, getEventsUser } from '../../services/postServices';
 import { useEffect, useState } from 'react';
-import Card from '../../components/Cards/Card';
+// import Card from '../../components/Cards/Card';
 import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode';
 import { Outlet } from 'react-router-dom';
-import { EvtConteiner, Main } from './style/meuseventos.js';
+// import { EvtConteiner, Main } from './style/meuseventos.js';
 import { ContaConteiner } from './style/conta.js';
 
 export function MeusEventos(){
     const [ eventos, setEventos] = useState([])
 
-    
+
+
     const token = Cookies.get('token')
     console.log("token: "+ token)
     if(!token){
@@ -21,26 +22,19 @@ export function MeusEventos(){
     const userId = decodde.id
     console.log("id: "+userId)
 
-    eventos.forEach(evento=>{
-        // if(evento.userId === userId){
-            console.log("userid evento: "+ evento.userId.toString() == userId.toString())
-            console.log("userid api: "+ userId.toString())
-        // }
-        // console.log('sem username')
-    })
-    
-    async function findall(){
-        try {
-            const response = await getAllEventos();
-            let dados = response.data.results;
 
+    async function findByUser(){
+        try {
+            const response = await getEventsUser();
+            let dados = response.data.results;
+            console.log(dados)
             setEventos(dados);
         } catch (error) {
             console.error("Erro ao buscar eventos:", error);
         }
     }
     useEffect(()=>{
-        findall()
+        findByUser()
     }, [])
     return(
         <ContaConteiner>

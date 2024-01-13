@@ -9,6 +9,8 @@ import { FormEventos } from "./FormEventos"
 import { Route } from "react-router-dom"
 import Perfil from "../Perfil/Perfil"
 import { MeusEventos } from "./MeusEventos"
+import { jwtDecode } from 'jwt-decode';
+import Cookies from "js-cookie"
 
 const LinkedStyle = styled(Link)`
     text-decoration: none;
@@ -57,6 +59,15 @@ export function Profile(){
     const {user} = useContext(UserContext)
     const [menuActive, setMenuActive]= useState(true)
     
+    const token = Cookies.get('token')
+    console.log("token: "+ token)
+    if(!token){
+        console.log('não tem token')
+    }
+    const decodde = jwtDecode(token)
+    console.log(decodde)
+    const userId = decodde.id
+
     function handleRoute(buttonNamed){
         if(buttonNamed !== buttonActive){
             setbuttonActive(buttonNamed)
@@ -83,7 +94,7 @@ export function Profile(){
                         <LinkedStyle to={"/profile/conta"}>
                             <MenuButton clicked={buttonActive === "Conta"} onClick={() => handleRoute("Conta")}>Perfil</MenuButton>
                         </LinkedStyle>
-                        <LinkedStyle to={"/profile/meuseventos"}>
+                        <LinkedStyle to={`/profile/meuseventos/${userId}`}>
                             <MenuButton clicked ={buttonActive === "Meus Eventos"} onClick={()=>handleRoute("Meus Eventos")}>Meus Eventos</MenuButton>
                         </LinkedStyle>
                         <LinkedStyle to={"/profile/cad_evento"}>
@@ -94,7 +105,7 @@ export function Profile(){
                 <PerfilProfile>
                     <Routes>
                         <Route path="/conta" element={<Perfil/>} /> 
-                        <Route path="/meuseventos" element={<MeusEventos/>}/>
+                        <Route path={`/meuseventos/${ userId }`} element={<MeusEventos/>}/>
                         <Route path="/cad_evento" element={<FormEventos/>}/>
                     </Routes>
                 </PerfilProfile>

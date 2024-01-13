@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Body = styled.body`
+export const Body = styled.div`
     background-color: white !important;
     width: 100vw;
     height: max-content;

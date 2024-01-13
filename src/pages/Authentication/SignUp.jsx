@@ -76,7 +76,7 @@ const SignUpForm = () => {
     <div className="container">
     <div className="form-image">
       <img src="Nordeste.png" alt="" />
-    </div>
+    </div>  
 
     <div className="form">
       <form onSubmit={handleSubmit(upHandleSubmit)}  encType="multipart/form-data">

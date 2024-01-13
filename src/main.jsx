@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             element: <Perfil/>,
           },
           {
-            path: 'meuseventos',
+            path: 'meuseventos/:id',
             element: <MeusEventos/>
           },
           {
