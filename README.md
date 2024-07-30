@@ -1,7 +1,7 @@
 # Compartilhe Eventos
-<div style=" display: flex; align-items: center; flex-direction: column;">
+<div align="center" style=" display: flex; align-items: center; flex-direction: column;">
     <img height="150px" src="./public/lgcultmaps.svg"/>
-    <p style="font-size: 20px; text-align: center;">
+    <p align="center" style="font-size: 20px; text-align: center;">
         <b>Cult Maps </b>é uma plataforma de divulgação de eventos, onde, <br> para ficar por dentro dos eventos mais próximo de você.
     </p>
     <hr/>
