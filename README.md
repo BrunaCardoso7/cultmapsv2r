@@ -17,15 +17,17 @@
         <li>Pesquisa de eventos</li>
     </ul>
     </div>
-
+    
+**Tecnologias:**
+ - React js
+ - Styled Component
+ - Axios
+   
 Colega de projeto:
 
 - [@github/Leonan Reis](https://github.com/LeonanAraudo) 
   
-- Tecnologias:
- - React js
- - Styled Component
- - Axios
+
 
 Repositório para API REST:
 
