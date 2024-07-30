@@ -1,8 +1,33 @@
-# React + Vite
+# Compartilhe Eventos
+<div style=" display: flex; align-items: center; flex-direction: column;">
+    <img height="150px" src="./public/lgcultmaps.svg"/>
+    <p style="font-size: 20px; text-align: center;">
+        <b>Cult Maps </b>é uma plataforma de divulgação de eventos, onde, <br> para ficar por dentro dos eventos mais próximo de você.
+    </p>
+    <hr/>
+    <img width="100%" src="./public/cultmapsHome.png"/>
+</div>
+    <div width="100%" style=" display: flex; align-items: start; flex-direction: column;">
+    <p><b>Principais funcionalidade</b></p>
+    <ul>
+        <li>Cadastro de usuário</li>
+        <li>Login</li>
+        <li>Cadastro de eventos</li>
+        <li>Listagem de eventos por categorias</li>
+        <li>Pesquisa de eventos</li>
+    </ul>
+    </div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Colega de projeto:
 
-Currently, two official plugins are available:
+- [@github/Leonan Reis](https://github.com/LeonanAraudo) 
+  
+- Tecnologias:
+ - React js
+ - Styled Component
+ - Axios
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Repositório para API REST:
+
+- [@github/api-cultmaps](https://github.com/BrunaCardoso7/api-cultmaps) 
+
